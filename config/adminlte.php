@@ -264,6 +264,12 @@ return [
             'url'  => 'admin/register',
             'icon' => 'fas fa-fw fa-lock',
         ],
+
+        [
+            'text' => 'change_password',
+            'url'  => 'marcas',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
