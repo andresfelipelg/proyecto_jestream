@@ -5,3 +5,4 @@ use App\Http\Controllers\Admin\HomeController;
 
 
 Route::get('' , [HomeController::class,'index']);
+Route::get('/register',[HomeController::class],'register');
