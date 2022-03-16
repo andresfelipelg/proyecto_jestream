@@ -13,9 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/admin', function () {
+=======
+Route::get('/', function () {
+>>>>>>> 6478cc03a81a5d4f62ba15a0d93223beef18f3fe
     return view('auth.login');
 });
+
+//Crud de Marcas
+Route::get('/marcas/index',[MarcaController::class,'index'])->name('marcas.index');
+Route::get('/marcas/create',[MarcaController::class,'create'])->name('marcas.create');
+Route::post('/marcas/store',[MarcaController::class,'store'])->name('marcas.store');
+Route::get('/marcas/edit/{id}',[MarcaController::class,'edit'])->name('marcas.edit');
+Route::put('/marcas/update/{id}',[MarcaController::class,'update'])->name('marcas.update');
+Route::delete('/marcas/delete/{id}',[MarcaController::class,'destroy'])->name('marcas.delete');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
