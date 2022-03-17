@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MarcaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-Route::get('/admin', function () {
-=======
+
 Route::get('/', function () {
->>>>>>> 6478cc03a81a5d4f62ba15a0d93223beef18f3fe
-    return view('auth.login');
+    return view('auth.register');
 });
 
 //Crud de Marcas

@@ -1,71 +1,55 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
 @section('content')
 
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="blue">
-                        <i class="material-icons">phone_paused</i>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">Directorio <b>LauNET</b></h4>
-                        <div class="toolbar">
-                            <!--        Here you can write extra buttons/actions for the toolbar              -->
-                        </div>
-                        <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>NOMBRE</th>
-                                  <th class="disabled-sorting text-right">ACCIONES</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <th>ID</th>
-                                    <th>NOMBRE</th>
+<a href="{{ route('marcas.create') }}" class="btn btn-primary mt-2 mb-3">Crear</a>
 
-                                    <th class="text-right">ACCIONES</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach ($marcas as $marca )
+   <table class="table table-dark text-center table-striped mt-4 table-bordered shadow-lg" id="articulos">
+     <thead class="bg-primary  text-white">
+         <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Nombre</th>
+             <th scope="col">Accion</th>
+         </tr>
+     </thead>
+     <tbody>
+        @foreach ($marcas as $marca )
 
-                                <tr>
+         <tr>
+            <td>{{$marca->id }}</td>
+            <td>{{$marca->marca }}</td>
 
-                                    <td>{{$marca->id }}</td>
-                                    <td>{{$marca->marca }}</td>
+         <td>
+                 <form  class ="" action="{{ route('marcas.delete',$marca->id) }}" method="post">
+                 @csrf
+                 @method('DELETE')
+                <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-info m-0 ">Editar</a>
+                <button href=""class="btn btn-danger" type="submit" >Borrar</button>
+            </form>
+            </td>
+         </tr>
 
+         @endforeach
+     </tbody>
+   </table>
 
-                                    <td class="text-right">
-                                        <a href=""><i title="Detalle directorio" class="material-icons">dvr</i></a>
-                                        <!--VALIDAMOS PERMISOS DEL USUSARIO-->
+@stop
 
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+@stop
 
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function() {
+     $('#articulos').DataTable({
 
-                                        <a href=""><i title="Agregar directorio" class="material-icons">group_add</i></a>
-                                        <a href="{{ route('marcas.edit',$marca->id)}}"><i title="Detalle directorio" class="material-icons">edit</i></a>
-
-                                        <!--FIN VALIDACIÓN-->
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-
-                        </table>
-                    </div>
-                </div>
-                <!-- end content-->
-            </div>
-            <!--  end card  -->
-        </div>
-        <!-- end col-md-12 -->
-    </div>
-    <!-- end row -->
-</div>
-</div>
-
-@endsection
+         "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]]
+     });
+      } );
+</script>
+@stop
