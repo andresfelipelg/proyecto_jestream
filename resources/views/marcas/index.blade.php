@@ -23,7 +23,7 @@
                  <form  class ="" action="{{ route('marcas.delete',$marca->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-info m-0 ">Editar</a>
+                <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-info d m-0 ">Editar</a>
                 <button href=""class="btn btn-danger" type="submit" >Borrar</button>
             </form>
             </td>
