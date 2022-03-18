@@ -1,15 +1,13 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
-
-@section('css')
-
-<link rel="stylesheet" href="{{asset('../../css/style.css')}}">
-
-@endsection
 
 @section('content')
 
-<div class="col-4 pt-5 m-auto ">
+
+<div class="conainer bg-warning">
+
+
+<div class="col-4 pt-5 m-auto">
     <div class="text-center mt-5 mb-5 ">
     <form  action="{{route('marcas.update',$id) }}" method="POST" class="mb-5">
         @csrf
@@ -25,7 +23,7 @@
 
       <div class="mb-2 d-flex">
       <input class="mt-2 btn btn-dark px-4 py-2" type="submit" value="Enviar" >
-      <input class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2" type="button" value="Borrar">
+      <a  href="{{ route('marcas.index')}}" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2"> Atras</a>
 
       </div>
 
@@ -34,4 +32,12 @@
     </form>
     </div>
     </div>
-@endsection
+</div>
+
+@stop
+@section('css')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="style.css">
+@stop
+

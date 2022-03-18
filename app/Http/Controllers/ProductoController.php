@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
-use App\Models\Marca;
 
-class MarcaController extends Controller
-
-
+class ProductoController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -17,9 +14,9 @@ class MarcaController extends Controller
 
     public function index()
     {
-        $marcas = Marca::all();
+        $productos = Producto::all();
 
-        return view('marcas.index',compact('marcas'));
+        return view('productos.index',compact('productos'));
     }
 
     /**
@@ -29,7 +26,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        return view ('marcas.create');
+        return view ('productos.create');
     }
 
     /**
@@ -40,11 +37,13 @@ class MarcaController extends Controller
      */
     public function store(Request  $request )
     {
-        $marcas = new Marca();
-        $marcas->marca = $request->marca;
-        $marcas->save();
+        $productos = new Producto();
+        $productos->codigo = $request->codigo;
+        $productos->referencia = $request->referencia;
+        $productos->referencia_proveedor = $request->referencia_proveedor;
+        $productos->save();
 
-        return redirect(route('marcas.index'));
+        return redirect(route('productos.index'));
 
     }
 
@@ -54,7 +53,7 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function show(Marca $marca)
+    public function show(Producto $producto)
     {
         //
     }
@@ -65,11 +64,11 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function edit(Marca $id)
+    public function edit(Producto $id)
     {
 
 
-        return view ('marcas.edit', compact('id'));
+        return view ('productos.edit', compact('id'));
 
     }
 
@@ -80,24 +79,24 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marca $id)
+    public function update(Request $request, Producto $id)
     {
         //dd($request);
         $id->marca = $request->marca;
         $id->update();
 
-        return redirect(route('marcas.index'));
+        return redirect(route('productos.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Marca  $marca
+     * @param  \App\Models\productos \$marcas
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $marca = Marca::find($id);
+        $marca = Producto::find($id);
         $marca->delete();
 
         return redirect(route('marcas.index'));

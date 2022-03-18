@@ -255,8 +255,8 @@ return [
         ],
 
         [
-            'text'        => 'Marcas',
-            'url'         => 'marcas/index',
+            'text'        => 'Productos',
+            'url'         => 'productos/index',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
