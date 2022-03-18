@@ -8,7 +8,9 @@
 @endsection
 
 @section('content')
+<body class=" bg-info">
 
+</body>
 <div class="col-4 pt-5 m-auto ">
     <div class="text-center mt-5 mb-5 ">
     <form  action="{{route('marcas.store') }}" method="POST" class="mb-5">
@@ -24,7 +26,7 @@
 
       <div class="mb-2 d-flex">
       <input class="mt-2 btn btn-dark px-4 py-2" type="submit" value="Enviar" >
-      <input class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2" type="button" value="Borrar">
+      <a href="{{ route('marcas.index') }}" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2">Atras</a>
 
       </div>
 
@@ -33,4 +35,5 @@
     </form>
     </div>
     </div>
+
 @endsection

@@ -16,7 +16,7 @@ use App\Http\Controllers\MarcaController;
 
 
 Route::get('/', function () {
-    return view('auth.register');
+    return view('auth.login');
 });
 
 //Crud de Marcas

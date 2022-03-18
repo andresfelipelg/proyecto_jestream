@@ -36,7 +36,7 @@ class MarcaController extends Controller
         $marcas->marca = $request->marca;
         $marcas->save();
 
-        return redirect()->back();
+        return redirect(route('marcas.index'));
 
     }
 
@@ -87,9 +87,12 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marca $marca)
+    public function destroy($id)
     {
-        //
+        $marca = Marca::find($id);
+        $marca->delete();
+
+        return redirect(route('marcas.index'));
     }
 
 }

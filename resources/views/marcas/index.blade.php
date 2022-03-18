@@ -2,9 +2,9 @@
 
 @section('content')
 
-<a href="{{ route('marcas.create') }}" class="btn btn-primary mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
+<a href="{{ route('marcas.create') }}" class="btn btn-outline-primary mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
 
-   <table class="table table-dark text-center table-striped mt-4 table-bordered shadow-lg" id="articulos">
+   <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="articulos">
      <thead class="bg-primary  text-white">
          <tr>
              <th scope="col">ID</th>
@@ -23,8 +23,8 @@
                  <form  class ="" action="{{ route('marcas.delete',$marca->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-primary d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
-                <button href=""class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
+                <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>
             </td>
@@ -53,5 +53,35 @@
          "lengthMenu":[[5,10,50,-1],[5,10,50,"All"]]
      });
       } );
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+let forms = document.querySelectorAll('form');
+forms.forEach(form =>{
+form.addEventListener('submit',(event)=>{
+ event.preventDefault();
+
+    Swal.fire({
+            title: '¿Quieres eliminar el registro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'confirmar'
+}).then((result) => {
+  if (result.isConfirmed) {
+      form.submit()
+    Swal.fire(
+      'Eliminado!',
+      'Se elimino con exito.',
+      'success'
+    )
+  }
+})
+
+});
+})
 </script>
 @stop
