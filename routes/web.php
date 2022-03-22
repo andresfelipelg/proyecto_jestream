@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ReclamoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,15 @@ Route::post('/productos/store',[ProductoController::class,'store'])->name('produ
 Route::get('/productos/edit/{id}',[ProductoController::class,'edit'])->name('productos.edit');
 Route::put('/productos/update/{id}',[ProductoController::class,'update'])->name('productos.update');
 Route::delete('/productos/delete/{id}',[ProductoController::class,'destroy'])->name('productos.delete');
+
+//crud de reclamacion
+Route::get('/reclamos/index',[ReclamoController::class,'index'])->name('reclamos.index');
+Route::get('/reclamos/create',[ReclamoController::class,'create'])->name('reclamos.create');
+Route::post('/reclamos/store',[ReclamoController::class,'store'])->name('reclamos.store');
+Route::get('/reclamos/edit/{id}',[ReclamoController::class,'edit'])->name('reclamos.edit');
+Route::put('/reclamos/update/{id}',[ReclamoController::class,'update'])->name('reclamos.update');
+Route::delete('/reclamos/delete/{id}',[ReclamoController::class,'destroy'])->name('reclamos.delete');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
