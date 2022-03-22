@@ -43,7 +43,13 @@ class ReclamoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reclamos = new Reclamo();
+        $reclamos ->codigo = $request->codigo;
+        $reclamos ->referencia = $request->referencia;
+        $reclamos ->referencia_proveedor = $request->referencia_proveedor;
+        $reclamos ->save();
+
+        return redirect(route('reclamos.index'));
     }
 
     /**
@@ -63,9 +69,9 @@ class ReclamoController extends Controller
      * @param  \App\Models\Reclamo  $reclamo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reclamo $reclamo)
+    public function edit(Reclamo $id)
     {
-        //
+        return view ('reclamos.edit', compact('id'));
     }
 
     /**
