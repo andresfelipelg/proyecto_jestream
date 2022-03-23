@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reclamo;
+use App\Models\Cliente;
+use App\Models\Marca;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ReclamoController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +16,7 @@ class ReclamoController extends Controller
      */
     public function index()
     {
-        $productos = Reclamo::all();
-
-        return view('reclamos.index',compact('productos'));
+        //
     }
 
     /**
@@ -32,7 +26,12 @@ class ReclamoController extends Controller
      */
     public function create()
     {
-        return view ('productos.create');
+
+        $clientes = Cliente::all();
+        $productos = Producto::all();
+        $marcas = Marca::all();
+
+        return view ('/reclamacion/create',compact('clientes','productos','marcas'));
     }
 
     /**
@@ -43,22 +42,16 @@ class ReclamoController extends Controller
      */
     public function store(Request $request)
     {
-        $reclamos = new Reclamo();
-        $reclamos ->codigo = $request->codigo;
-        $reclamos ->referencia = $request->referencia;
-        $reclamos ->referencia_proveedor = $request->referencia_proveedor;
-        $reclamos ->save();
-
-        return redirect(route('reclamos.index'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Reclamo  $reclamo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Reclamo $reclamo)
+    public function show($id)
     {
         //
     }
@@ -66,22 +59,22 @@ class ReclamoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Reclamo  $reclamo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reclamo $id)
+    public function edit($id)
     {
-        return view ('reclamos.edit', compact('id'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reclamo  $reclamo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reclamo $reclamo)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -89,10 +82,10 @@ class ReclamoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Reclamo  $reclamo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reclamo $reclamo)
+    public function destroy($id)
     {
         //
     }

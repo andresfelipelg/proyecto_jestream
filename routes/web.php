@@ -39,7 +39,7 @@ Route::delete('/productos/delete/{id}',[ProductoController::class,'destroy'])->n
 
 //crud de reclamacion
 Route::get('/reclamos/index',[ReclamoController::class,'index'])->name('reclamos.index');
-Route::get('/reclamos/create',[ReclamoController::class,'create'])->name('reclamos.create');
+Route::get('/reclamacion/create',[ReclamoController::class,'create'])->name('reclamacion.create');
 Route::post('/reclamos/store',[ReclamoController::class,'store'])->name('reclamos.store');
 Route::get('/reclamos/edit/{id}',[ReclamoController::class,'edit'])->name('reclamos.edit');
 Route::put('/reclamos/update/{id}',[ReclamoController::class,'update'])->name('reclamos.update');
