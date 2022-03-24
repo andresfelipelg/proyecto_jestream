@@ -4,7 +4,7 @@
 @section('content')
 
 
-<div class="conainer bg-warning">
+<div class="conainer">
 
 
 <div class="col-4 pt-5 m-auto">

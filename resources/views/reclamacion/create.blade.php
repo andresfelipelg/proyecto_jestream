@@ -8,24 +8,23 @@
 @endsection
 
 @section('content')
-<body class=" bg-info">
+<body class="color">
 
-</body>
-<div class="col-4 pt-5 m-auto ">
+<div class="col-6 pt-5 m-auto ">
     <div class="text-center mt-5 mb-5 ">
     <form  action="" method="POST" class="mb-5 row g-3">
         @csrf
-        <i class=" display-1 bi bi-clipboard-data-fill"></i>
+        <i class=" text-white display-1 bi bi-clipboard-data-fill"></i>
         <h1 class= "mt-4 h2 font-weight-normal text-white" >Nueva Reclamacion</h1>
 
-
-        <div class="">
-            <input class="form-control" name="fecha_ingreso" type="date" placeholder="Ingresa la fecha actual">
-        </div>
 
         <div class="form-floating col-md-6">
             <input type="date" class="form-control" id="floatingInput" placeholder="">
             <label for="floatingInput">Fecha de ingreso</label>
+          </div>
+          <div class="form-floating col-md-6">
+            <input type="date" class="form-control" id="floatingInput" placeholder="">
+            <label for="floatingInput">Fecha de Respuesta</label>
           </div>
            <div class="col-md-6">
                 <select name="cliente" class="form-select">
@@ -62,13 +61,14 @@
         </select>
      </div>
 
-     <div class="col-md-6">
-        <input class="form-control" name="text" type="" placeholder="Descripcion del problema">
-    </div>
+     <div class="form-floating">
+        <textarea class="form-control" placeholder="Descripcion d eLaumayer" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Descripcion del problema</label>
+      </div>
 
     <div class="form-floating">
         <textarea class="form-control" placeholder="Descripcion d eLaumayer" id="floatingTextarea2" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Descripcion despues de Revision</label>
+        <label for="floatingTextarea2">Respuesta de revision</label>
       </div>
 
       <div class="col-md-6">
@@ -89,9 +89,7 @@
         </select>
     </div>
 
-    <div class="col-md-6">
-        <input class="form-control" name="fecha_ingreso" type="date" placeholder="Ingresa la fecha de Salida">
-    </div>
+
 
     <div class="col-md-6">
         <input class="form-control" name="fecha_ingreso" type="text" placeholder="Tipo de Documento">
@@ -115,21 +113,13 @@
         <label for="floatingTextarea2">Observaciones</label>
       </div>
 
-      <div class="form-floating mb-3">
-        <input type="date" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Fecha de ingreso</label>
-      </div>
-
       <div class="mb-2 d-flex">
         <input class="mt-2 btn btn-dark px-4 py-2" type="submit" value="Enviar" >
         <a href="" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2">Atras</a>
       </div>
-
-
-
-
     </form>
     </div>
     </div>
 
+</body>
 @endsection
