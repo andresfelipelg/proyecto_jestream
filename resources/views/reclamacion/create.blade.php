@@ -14,7 +14,7 @@
     <div class="text-center mt-5 mb-5 ">
     <form  action="" method="POST" class="mb-5 row g-3">
         @csrf
-        <i class=" text-white display-1 bi bi-clipboard-data-fill"></i>
+        <i class=" text-white display-3 bi bi-clipboard-data-fill"></i>
         <h1 class= "mt-4 h2 font-weight-normal text-white" >Nueva Reclamacion</h1>
 
 
@@ -33,16 +33,17 @@
                     <option class="form-control" value="{{$cliente->nombre}}">{{$cliente->nombre}}</option>
                     @endforeach
                 </select>
-            </div>
-
+                </div>
                 <div class="col-md-6">
-                    <select name="comercial" class="form-select">
+                    <select name="cliente" class="form-select">
                         <option selected>Comercial</option>
                         @foreach ($comerciales as $comercial)
-                        <option class="form-control" value="{{$comercial->nombre}}">{{$comercial->nombre}}</option>
+                        <option class="form-control" value="{{$comercial->comercial}}">{{$comercial->comercial}}</option>
                         @endforeach
                     </select>
             </div>
+
+
            <div class="col-md-6">
             <input class="form-control" name="codigo" type="number" placeholder="Ingrese el numero de factura">
            </div>
@@ -78,7 +79,6 @@
             <option value="c">Finalizada</option>
         </select>
     </div>
-
      <div class="form-floating">
         <textarea class="form-control" placeholder="Descripcion d eLaumayer" id="floatingTextarea2" style="height: 100px"></textarea>
         <label for="floatingTextarea2">Descripcion del problema</label>
@@ -125,8 +125,9 @@
       </div>
 
       <div class="mb-2 d-flex">
-        <input class="mt-2 btn btn-dark px-4 py-2" type="submit" value="Enviar" >
-        <a href="" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2">Atras</a>
+
+        <button class="mt-2 btn btn-dark px-4 py-2" type="submit"><i class="bi bi-send-plus-fill"></i>  Enviar</button>
+        <a href="" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2"><i class="  bi bi-arrow-left-circle"></i> Atras</a>
       </div>
     </form>
     </div>
