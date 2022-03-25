@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
 use App\Models\Comercial;
-use App\Models\Marca;
-use App\Models\Producto;
 use Illuminate\Http\Request;
 
-class ReclamoController extends Controller
+class ComercialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,13 +24,7 @@ class ReclamoController extends Controller
      */
     public function create()
     {
-
-        $clientes = Cliente::all();
-        $productos = Producto::all();
-        $marcas = Marca::all();
-        $comerciales = Comercial::all();
-
-        return view ('/reclamacion/create',compact('clientes','productos','marcas','comerciales'));
+        //
     }
 
     /**
@@ -50,10 +41,10 @@ class ReclamoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Comercial  $comercial
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comercial $comercial)
     {
         //
     }
@@ -61,10 +52,10 @@ class ReclamoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Comercial  $comercial
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comercial $comercial)
     {
         //
     }
@@ -73,10 +64,10 @@ class ReclamoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Comercial  $comercial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comercial $comercial)
     {
         //
     }
@@ -84,10 +75,10 @@ class ReclamoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Comercial  $comercial
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comercial $comercial)
     {
         //
     }
