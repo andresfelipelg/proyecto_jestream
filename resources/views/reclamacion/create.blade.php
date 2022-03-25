@@ -34,13 +34,22 @@
                     @endforeach
                 </select>
             </div>
+
+                <div class="col-md-6">
+                    <select name="comercial" class="form-select">
+                        <option selected>Comercial</option>
+                        @foreach ($comerciales as $comercial)
+                        <option class="form-control" value="{{$comercial->nombre}}">{{$comercial->nombre}}</option>
+                        @endforeach
+                    </select>
+            </div>
            <div class="col-md-6">
             <input class="form-control" name="codigo" type="number" placeholder="Ingrese el numero de factura">
            </div>
         <div class="col-md-6 ">
             <select name="producto" class="form-select">
-                @foreach ($productos as $items)
                 <option selected>Producto</option>
+                @foreach ($productos as $items)
                 <option value="{{$items->codigo}}">{{$items->codigo}}</option>
                 @endforeach
             </select>
@@ -60,6 +69,15 @@
             @endforeach
         </select>
      </div>
+
+     <div class="col-md-6">
+        <select name="marca" class="form-select">
+            <option selected>Estado</option>
+            <option value="t">Iniciada</option>
+            <option value="i">En proceso</option>
+            <option value="c">Finalizada</option>
+        </select>
+    </div>
 
      <div class="form-floating">
         <textarea class="form-control" placeholder="Descripcion d eLaumayer" id="floatingTextarea2" style="height: 100px"></textarea>
@@ -96,17 +114,10 @@
     </div>
 
     <div class="col-md-6">
-        <input class="form-control" name="fecha_ingreso" type="text" placeholder="Consecutivo">
+        <input class="form-control" name="fecha_ingreso" type="text" placeholder="Consecutivo carta">
     </div>
 
-    <div class="col-md-6">
-        <select name="marca" class="form-select">
-            <option selected>Estado</option>
-            <option value="t">Iniciada</option>
-            <option value="i">En proceso</option>
-            <option value="c">Finalizada</option>
-        </select>
-    </div>
+
 
     <div class="form-floating">
         <textarea class="form-control" placeholder="Descripcion d eLaumayer" id="floatingTextarea2" style="height: 100px"></textarea>

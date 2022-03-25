@@ -15,9 +15,12 @@ class CreateReclamosTable extends Migration
     {
         Schema::create('reclamos', function (Blueprint $table) {
             $table->id();
-            $table->string('fecha_ingreso');
+            $table->date('created_at');
+            $table->date('created_at')->nullable();
             $table->string('cliente');
-            $table->string('ejecutivo');
+            $table->string('comercial');
+            $table->text('description_cliente');
+            $table->text('description_cliente');
             $table->text('description_cliente');
             $table->text('description_laumayer');
             $table->string('aplica_garantia');

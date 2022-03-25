@@ -229,7 +229,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -250,7 +250,6 @@ return [
             'text'        => 'Marcas',
             'url'         => 'marcas/index',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
             'label_color' => 'success',
         ],
 
@@ -258,7 +257,13 @@ return [
             'text'        => 'Productos',
             'url'         => 'productos/index',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'label_color' => 'success',
+        ],
+
+        [
+            'text'        => 'reclamacion',
+            'url'         => 'reclamacion/index',
+            'icon'        => 'far fa-fw fa-share',
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
