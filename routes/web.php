@@ -38,12 +38,12 @@ Route::put('/productos/update/{id}',[ProductoController::class,'update'])->name(
 Route::delete('/productos/delete/{id}',[ProductoController::class,'destroy'])->name('productos.delete');
 
 //crud de reclamacion
-Route::get('/reclamos/index',[ReclamoController::class,'index'])->name('reclamos.index');
+Route::get('/reclamacion/index',[ReclamoController::class,'index'])->name('reclamacion.index');
 Route::get('/reclamacion/create',[ReclamoController::class,'create'])->name('reclamacion.create');
-Route::post('/reclamos/store',[ReclamoController::class,'store'])->name('reclamos.store');
-Route::get('/reclamos/edit/{id}',[ReclamoController::class,'edit'])->name('reclamos.edit');
-Route::put('/reclamos/update/{id}',[ReclamoController::class,'update'])->name('reclamos.update');
-Route::delete('/reclamos/delete/{id}',[ReclamoController::class,'destroy'])->name('reclamos.delete');
+Route::post('/reclamacion/store',[ReclamoController::class,'store'])->name('reclamacion.store');
+Route::get('/reclamacion/edit/{id}',[ReclamoController::class,'edit'])->name('reclamacion.edit');
+Route::put('/reclamacion/update/{id}',[ReclamoController::class,'update'])->name('reclamacion.update');
+Route::delete('/reclamacion/delete/{id}',[ReclamoController::class,'destroy'])->name('reclamacion.delete');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

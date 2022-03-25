@@ -15,23 +15,24 @@ class CreateReclamosTable extends Migration
     {
         Schema::create('reclamos', function (Blueprint $table) {
             $table->id();
-            $table->date('created_at');
-            $table->date('created_at')->nullable();
+            $table->date('fecha_ingreso');
+            $table->date('fecha_respuesta')->nullable();
             $table->string('cliente');
             $table->string('comercial');
-            $table->text('description_cliente');
-            $table->text('description_cliente');
-            $table->text('description_cliente');
-            $table->text('description_laumayer');
-            $table->string('aplica_garantia');
+            $table->integer('factura');
+            $table->string('producto');
+            $table->integer('cantidad');
+            $table->string('lote_serial');
+            $table->string('marca');
+            $table->string('estado');
+            $table->text('descripcion_problema');
+            $table->text('descripcion_revision');
+            $table->string('solucion');
             $table->string('tipo_garantia');
-            $table->string('garantia_autorizado');
-            $table->string('fecha_salida');
             $table->string('num_documento');
             $table->string('consecutivo_carta');
-            $table->string('observaciones');
-            $table->string('estado');
-            $table->timestamps();
+            $table->text('observaciones');
+             $table->timestamps();
         });
     }
 

@@ -241,11 +241,26 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+
+        [
+            'text' => 'reclamacion',
+            'url'  => 'admin/blog',
+            'can'  => 'manage-blog',
+        ],
+
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+
+        [
+            'text'        => 'Reclamacion',
+            'url'         => 'reclamacion/index',
+            'icon'        => 'far fa-fw fa-file',
+            'label_color' => 'success',
+        ],
+
         [
             'text'        => 'Marcas',
             'url'         => 'marcas/index',
