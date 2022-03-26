@@ -2,32 +2,37 @@
 
 @section('content')
 
-<a href="{{ route('productos.create') }}" class="btn btn-outline-primary mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
+<a href="{{ route('reclamacion.create') }}" class="btn btn-outline-primary mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
 
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="articulos">
      <thead class="bg-primary  text-white">
          <tr>
-             <th scope="col">ID</th>
+             <th scope="col">Consecutivo</th>
+             <th scope="col">Cliente</th>
+             <th scope="col">Factura</th>
              <th scope="col">Codigo</th>
-             <th scope="col">Referecnia</th>
-             <th scope="col">Referecnia Proveedor</th>
+             <th scope="col">Problemas del equipo</th>
+             <th scope="col">Estado</th>
              <th scope="col">Acciones</th>
          </tr>
      </thead>
      <tbody>
-        @foreach ($productos as $producto )
+        @foreach ($reclamaciones as $reclamacion )
 
          <tr>
-            <td>{{$producto->id }}</td>
-            <td>{{$producto->codigo }}</td>
-            <td>{{$producto->referencia }}</td>
-            <td>{{$producto->referencia_proveedor }}</td>
+            <td>{{$reclamacion->id }}</td>
+            <td>{{$reclamacion->cliente }}</td>
+            <td>{{$reclamacion->factura }}</td>
+            <td>{{$reclamacion->producto }}</td>
+            <td>{{$reclamacion->descripcion_problema }}</td>
+            <td>{{$reclamacion->estado }}</td>
+
 
          <td>
-                 <form  class ="" action="{{ route('productos.delete',$producto->id) }}" method="post">
+                 <form  class ="" action="{{ route('reclamacion.delete',$reclamacion->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('productos.edit',$producto->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                <a href="{{ route('reclamacion.edit',$reclamacion->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>

@@ -50,8 +50,8 @@
         <div class="col-md-6 ">
             <select name="producto" class="form-select">
                 <option selected>Producto</option>
-                @foreach ($productos as $items)
-                <option value="{{$items->codigo}}">{{$items->codigo}}</option>
+                @foreach ($productos as $producto)
+                <option value="{{$producto->codigo}}">{{$producto->codigo}}</option>
                 @endforeach
             </select>
        </div>

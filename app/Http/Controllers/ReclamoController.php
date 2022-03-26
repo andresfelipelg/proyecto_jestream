@@ -18,7 +18,13 @@ class ReclamoController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Cliente::all();
+        $productos = Producto::all();
+        $marcas = Marca::all();
+        $comerciales = Comercial::all();
+        $reclamaciones = Reclamo::all();
+
+        return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones'));
     }
 
     /**
@@ -34,7 +40,7 @@ class ReclamoController extends Controller
         $marcas = Marca::all();
         $comerciales = Comercial::all();
 
-        return view ('/reclamacion/create',compact('clientes','productos','marcas','comerciales'));
+        return view ('reclamacion.create',compact('clientes','productos','marcas','comerciales'));
     }
 
     /**
@@ -56,8 +62,8 @@ class ReclamoController extends Controller
         $reclamos->lote_serial = $request->lote_serial;
         $reclamos->marca = $request->marca;
         $reclamos->estado = $request->estado;
-        $reclamos->descipcion_problema = $request->descripcion_problema;
-        $reclamos->descipcion_revision = $request->descripcion_revision;
+        $reclamos->descripcion_problema = $request->descripcion_problema;
+        $reclamos->descripcion_revision = $request->descripcion_revision;
         $reclamos->solucion = $request->solucion;
         $reclamos->tipo_garantia = $request->tipo_garantia;
         $reclamos->num_documento = $request->num_documento;
@@ -89,7 +95,14 @@ class ReclamoController extends Controller
      */
     public function edit($id)
     {
-        return view('reclamacion.edit',compact('id'));
+        $clientes = Cliente::all();
+        $productos = Producto::all();
+        $marcas = Marca::all();
+        $comerciales = Comercial::all();
+
+        $reclamo = Reclamo::find($id);
+
+        return view('reclamacion.edit',compact('id','clientes','productos','marcas','comerciales','reclamo'));
     }
 
     /**
@@ -101,6 +114,11 @@ class ReclamoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $clientes = Cliente::all();
+        $productos = Producto::all();
+        $marcas = Marca::all();
+        $comerciales = Comercial::all();
+
 
         $reclamo = Reclamo::find($id);
         $reclamo->fecha_ingreso = $request->fecha_ingreso;
