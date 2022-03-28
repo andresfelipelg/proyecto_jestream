@@ -8,6 +8,8 @@ use App\Models\Marca;
 use App\Models\Producto;
 use App\Models\Reclamo;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Redirect;
 
 class ReclamoController extends Controller
 {
@@ -99,7 +101,6 @@ class ReclamoController extends Controller
         $productos = Producto::all();
         $marcas = Marca::all();
         $comerciales = Comercial::all();
-
         $reclamo = Reclamo::find($id);
 
         return view('reclamacion.edit',compact('id','clientes','productos','marcas','comerciales','reclamo'));
@@ -114,11 +115,6 @@ class ReclamoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clientes = Cliente::all();
-        $productos = Producto::all();
-        $marcas = Marca::all();
-        $comerciales = Comercial::all();
-
 
         $reclamo = Reclamo::find($id);
         $reclamo->fecha_ingreso = $request->fecha_ingreso;
@@ -131,14 +127,16 @@ class ReclamoController extends Controller
         $reclamo->lote_serial = $request->lote_serial;
         $reclamo->marca = $request->marca;
         $reclamo->estado = $request->estado;
-        $reclamo->descipcion_problema = $request->descripcion_problema;
-        $reclamo->descipcion_revision = $request->descripcion_revision;
+        $reclamo->descripcion_problema = $request->descripcion_problema;
+        $reclamo->descripcion_revision = $request->descripcion_revision;
         $reclamo->solucion = $request->solucion;
         $reclamo->tipo_garantia = $request->tipo_garantia;
         $reclamo->num_documento = $request->num_documento;
         $reclamo->consecutivo_carta = $request->consecutivo_carta;
         $reclamo->observaciones = $request->observaciones;
         $reclamo->save();
+
+        return Redirect( Route('reclamacion.index'));
     }
 
     /**
@@ -149,6 +147,9 @@ class ReclamoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reclamo = Reclamo::find($id);
+        $reclamo->delete();
+
+        return redirect(route('marcas.index'));
     }
 }
