@@ -26,58 +26,65 @@
             <input type="date" name="fecha_respuesta" class="form-control" id="floatingInput" placeholder="">
             <label for="floatingInput">Fecha de Respuesta</label>
           </div>
-           <div class="col-md-6">
-                <select name="cliente" class="form-select">
-                    <option selected>Cliente</option>
-                    @foreach ($clientes as$cliente)
-                    <option class="form-control" value="{{$cliente->nombre}}">{{$cliente->nombre}}</option>
+           <div class="col-md-6 form-floating">
+                <select name="cliente"  class="form-select">
+                    @foreach ($clientes as $cliente)
+                    <option class="form-control"  value="{{$cliente->nombre}}">{{$cliente->nombre}}</option>
                     @endforeach
                 </select>
+                <label> Cliente</label>
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-6 form-floating" >
                     <select name="comercial" class="form-select">
-                        <option selected>Comercial</option>
                         @foreach ($comerciales as $comercial)
                         <option class="form-control" value="{{$comercial->nombre}}">{{$comercial->nombre}}</option>
                         @endforeach
                     </select>
-            </div>
+                    <label>Comercial</label>
+                </div>
 
 
-           <div class="col-md-6">
+           <div class="col-md-6 form-floating" >
             <input class="form-control" name="factura" type="number" placeholder="Ingrese el numero de factura">
-           </div>
-        <div class="col-md-6 ">
+            <label>"Ingrese el numero de factura</label>
+          </div>
+
+        <div class="col-md-6 form-floating">
             <select name="producto" class="form-select">
-                <option selected>Producto</option>
                 @foreach ($productos as $producto)
                 <option value="{{$producto->codigo}}">{{$producto->codigo}}</option>
                 @endforeach
             </select>
+            <label>Producto</label>
        </div>
-       <div class="col-md-6">
+
+       <div class="col-md-6 form-floating">
         <input class="form-control" name="cantidad" type="number" placeholder="Cantidad">
+        <label>Cantidad</label>
     </div>
-        <div class="col-md-6">
+
+        <div class="col-md-6 form-floating">
             <input class="form-control" name="lote_serial" type="text" placeholder="Lote o Serial">
+            <label>Lote o Serial</label>
         </div>
 
-       <div class="col-md-6">
+       <div class="col-md-6 form-floating">
         <select name="marca" class="form-select">
-            <option selected>Marca</option>
             @foreach ($marcas as $marca)
             <option value="{{$marca->marca}}">{{$marca->marca}}</option>
             @endforeach
         </select>
-     </div>
+        <label>Marca</label>
+    </div>
 
-     <div class="col-md-6">
+     <div class="col-md-6 form-floating">
         <select name="estado" class="form-select">
-            <option selected>Estado</option>
-            <option value="Iniciada">Iniciada</option>
+            <option value="Iniciado">Iniciado</option>
             <option value="En proceso">En proceso</option>
-            <option value="Finalizada">Finalizada</option>
+            <option value="Finalizado">Finalizado</option>
         </select>
+        <label>Estado</label>
     </div>
      <div class="form-floating">
         <textarea class="form-control" name="descripcion_problema" placeholder="Descripcion de Laumayer" id="floatingTextarea2" style="height: 100px"></textarea>
@@ -89,32 +96,35 @@
         <label for="floatingTextarea2">Respuesta de revision</label>
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6 form-floating">
         <select name="solucion" class="form-select">
-            <option selected>Solucion</option>
-            <option value="no_aplica">No Aplica Garantia</option>
-            <option value="aplica">Aplica Garantia</option>
-
+            <option value="En Revision">En Revision</option>
+            <option value="No Aplica Garantia">No Aplica Garantia</option>
+            <option value="Aplica Garantia">Aplica Garantia</option>
         </select>
+        <label>Solucion</label>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 form-floating">
         <select name="tipo_garantia" class="form-select">
-            <option selected>Tipo de Garantia</option>
-            <option value="tecnica">Tecnica</option>
-            <option value="interna">Interna</option>
-            <option value="comercial">Comercial</option>
+            <option value="No Definida">No Definida</option>
+            <option value="Tecnica">Tecnica</option>
+            <option value="Interna">Interna</option>
+            <option value="Comercial">Comercial</option>
         </select>
+        <label>Tipo de Garantia</label>
     </div>
 
 
 
-    <div class="col-md-6">
+    <div class="col-md-6 form-floating">
         <input class="form-control" name="num_documento" type="text" placeholder="Tipo de Documento">
+        <label>Tipo de Documento</label>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 form-floating">
         <input class="form-control" name="consecutivo_carta" type="text" placeholder="Consecutivo carta">
+        <label>Consecutivo carta</label>
     </div>
 
     <div class="form-floating">

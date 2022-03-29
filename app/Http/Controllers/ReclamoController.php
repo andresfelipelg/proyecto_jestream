@@ -86,7 +86,8 @@ class ReclamoController extends Controller
      */
     public function show($id)
     {
-        //
+        $reclamo = Reclamo::find($id);
+        return view('reclamacion.show',compact('reclamo'));
     }
 
     /**
@@ -150,6 +151,6 @@ class ReclamoController extends Controller
         $reclamo = Reclamo::find($id);
         $reclamo->delete();
 
-        return redirect(route('marcas.index'));
+        return redirect(route('reclamacion.index'));
     }
 }

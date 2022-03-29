@@ -12,7 +12,7 @@
 
 <div class="col-6 pt-5 m-auto ">
     <div class="text-center mt-5 mb-5 ">
-    <form  action="{{ route('reclamacion.update',$reclamo->id)}}" method="POST" class="mb-5 row g-3">
+    <form  action="" method="POST" class="mb-5 row g-3">
         @csrf
         @method('PUT')
         <i class=" text-white display-3 bi bi-clipboard-data-fill"></i>
@@ -30,18 +30,14 @@
 
            <div class="col-md-6 form-floating">
                 <select name="cliente" id="floatingSelect" value="{{  $reclamo->cliente }}" class="form-select">
-                    @foreach ($clientes as$cliente)
-                    <option class="form-control" value="{{$cliente->nombre}}">{{$cliente->nombre}}</option>
-                    @endforeach
+                    <option value="{{$reclamo->cliente}}">{{$reclamo->cliente}}</option>
                 </select>
                 <label for="floatingSelect">Cliente</label>
                 </div>
                 <div class="col-md-6 form-floating ">
                     <select name="comercial"  class="form-select" id="floatingSelect">
                         <option value="{{$reclamo->comercial}}">{{$reclamo->comercial}}</option>
-                        @foreach ($comerciales as $comercial)
-                        <option class="form-control" value="{{$comercial->nombre}}">{{$comercial->nombre}}</option>
-                        @endforeach
+
                     </select>
                     <label for="floatingSelect">Comercial</label>
             </div>
@@ -54,9 +50,7 @@
 
         <div class="col-md-6 form-floating ">
             <select name="producto" id="floatingSelect"  class="form-select">
-                @foreach ($productos as $producto)
-                <option value="{{$producto->codigo}}">{{$producto->codigo}}</option>
-                @endforeach
+                <option value="{{$reclamo->producto}}">{{$reclamo->producto}}</option>
             </select>
             <label for="floatingSelect">Producto</label>
        </div>
@@ -72,9 +66,7 @@
        <div class="col-md-6 form-floating">
         <select name="marca"  value="{{  $reclamo->marca }}" id="floatingSelect"  aria-label="Floating label select example" class="form-select">
             <option value="{{$reclamo->marca}}">{{$reclamo->marca}}</option>
-            @foreach ($marcas as $marca)
-            <option value="{{$marca->marca}}">{{$marca->marca}}</option>
-            @endforeach
+
         </select>
         <label for="floatingSelect">Marca</label>
      </div>
@@ -82,12 +74,7 @@
 
     <div class="col-md-6 form-floating ">
         <select name="estado"  class="form-select">
-
-            {{-- <option value="{{  $reclamo->estado  }}">{{$reclamo->estado}}</option> --}}
-            <option value="Iniciado"{{  $reclamo->estado === 'Iniciado' ? 'selected':'' }}>Iniciado</option>
-            <option value= "En proceso" {{  $reclamo->estado === 'En proceso' ? 'selected':'' }}>En proceso</option>
-            <option value="Finalizado"{{  $reclamo->estado === 'Finalizado' ? 'selected':'' }}>Finalizado</option>
-
+            <option value="{{  $reclamo->estado  }}">{{$reclamo->estado}}</option>
         </select>
         <label for="floatingTextarea2">Estado</label>
     </div>
@@ -108,18 +95,14 @@
     <div class="col-md-6 form-floating">
         <select name="solucion"  class="form-select">
             <option value="{{  $reclamo->solucion  }}">{{  $reclamo->solucion  }}</option>
-            <option value="No Aplica Garantia"{{  $reclamo->solucion  }}>No Aplica Garantia</option>
-            <option value="Aplica Garantia"{{  $reclamo->solucion  }}>Aplica Garantia</option>
+
         </select>
         <label for="floatingTextarea2">Solucion</label>
     </div>
 
     <div class="col-md-6 form-floating">
         <select name="tipo_garantia" class="form-select">
-            <option value= "No Definida"{{  $reclamo->tipo_garantia == 'No Definida' ? 'selected':'' }}>No Definida</option>
-            <option value= "Tecnica"{{  $reclamo->tipo_garantia == 'Tecnica' ? 'selected':'' }}>Tecnica</option>
-            <option value="Interna"{{  $reclamo->tipo_garantia == 'Interna' ? 'selected':'' }}>Interna</option>
-            <option value="Comercial"{{  $reclamo->tipo_garantia == 'Comercial' ? 'selected':'' }}>Comercial</option>
+            <option value="{{  $reclamo->tipo_garantia  }}">{{  $reclamo->tipo_garantia   }}</option>
         </select>
         <label for="floatingTextarea2">Tipo de Garantia</label>
     </div>
@@ -140,7 +123,7 @@
       </div>
 
       <div class="mb-2 d-flex">
-        <button class="mt-2 btn btn-dark px-4 py-2" type="submit"><i class="bi bi-send-plus-fill"></i> editar</button>
+
         <a href="{{ route('reclamacion.index')}}" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2"><i class="bi bi-arrow-left-circle"></i> Atras</a>
       </div>
     </form>
