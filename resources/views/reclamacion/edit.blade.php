@@ -16,7 +16,7 @@
         @csrf
         @method('PUT')
         <i class=" text-white display-3 bi bi-clipboard-data-fill"></i>
-        <h1 class= "mt-4 h2 font-weight-normal text-white" >Nueva Reclamacion</h1>
+        <h1 class= "mt-4 h2 font-weight-normal text-white" >Editar Reclamacion</h1>
 
 
         <div class="form-floating col-md-6">
@@ -27,51 +27,59 @@
             <input type="date" name="fecha_respuesta" value="{{ $reclamo->fecha_respuesta }}" class="form-control" id="floatingInput" placeholder="">
             <label for="floatingInput">Fecha de Respuesta</label>
           </div>
-           <div class="col-md-6">
-                <select name="cliente" value="{{  $reclamo->cliente }}" class="form-select">
-                    <option selected>Cliente</option>
+
+           <div class="col-md-6 form-floating">
+                <select name="cliente" id="floatingSelect" value="{{  $reclamo->cliente }}" class="form-select">
                     @foreach ($clientes as$cliente)
                     <option class="form-control" value="{{$cliente->nombre}}">{{$cliente->nombre}}</option>
                     @endforeach
                 </select>
+                <label for="floatingSelect">Cliente</label>
                 </div>
-                <div class="col-md-6">
-                    <select name="comercial"  value="{{  $reclamo->comercial }}" class="form-select">
-                        <option selected>Comercial</option>
+                <div class="col-md-6 form-floating ">
+                    <select name="comercial"  class="form-select" id="floatingSelect">
+                        <option value="{{$reclamo->comercial}}">{{$reclamo->comercial}}</option>
                         @foreach ($comerciales as $comercial)
                         <option class="form-control" value="{{$comercial->nombre}}">{{$comercial->nombre}}</option>
                         @endforeach
                     </select>
+                    <label for="floatingSelect">Comercial</label>
             </div>
 
 
-           <div class="col-md-6">
+           <div class="col-md-6 form-floating">
             <input class="form-control" name="factura"  value="{{  $reclamo->factura }}" type="number" placeholder="Ingrese el numero de factura">
+            <label for="floatingSelect">Ingrese el numero de factura</label>
            </div>
-        <div class="col-md-6 ">
-            <select name="producto"  value="{{  $reclamo->producto }}"class="form-select">
-                <option selected>Producto</option>
+
+        <div class="col-md-6 form-floating ">
+            <select name="producto" id="floatingSelect"  class="form-select">
                 @foreach ($productos as $producto)
                 <option value="{{$producto->codigo}}">{{$producto->codigo}}</option>
                 @endforeach
             </select>
+            <label for="floatingSelect">Producto</label>
        </div>
-       <div class="col-md-6">
+       <div class="col-md-6 form-floating">
         <input class="form-control" name="cantidad"  value="{{  $reclamo->cantidad }}"type="number" placeholder="Cantidad">
+        <label for="floatingSelect">Cantidad</label>
     </div>
-        <div class="col-md-6">
+        <div class="col-md-6 form-floating">
             <input class="form-control" name="lote_serial"  value="{{  $reclamo->lote_serial }}"type="text" placeholder="Lote o Serial">
+            <label for="floatingSelect">Lote o Serial</label>
         </div>
 
-       <div class="col-md-6">
-        <select name="marca"  value="{{  $reclamo->marca }}" class="form-select">
-            <option selected>Marca</option>
+       <div class="col-md-6 form-floating">
+        <select name="marca"  value="{{  $reclamo->marca }}" id="floatingSelect"  aria-label="Floating label select example" class="form-select">
+            <option value="{{$reclamo->marca}}">{{$reclamo->marca}}</option>
             @foreach ($marcas as $marca)
-            <option value=">{{$marca->marca}}">{{$marca->marca}}</option>
+            <option value="{{$marca->marca}}">{{$marca->marca}}</option>
             @endforeach
         </select>
+        <label for="floatingSelect">Marca</label>
      </div>
 
+<<<<<<< HEAD
      <div class="col-md-6 form-floating">
         <select name="estado"  class="form-select">
             <option value="{{  $reclamo->estado === "iniciado" ? 'selected':''}}">Iniciado</option>
@@ -79,14 +87,35 @@
             <option value="{{  $reclamo->estado === "Finalizado" ? 'selected':'' }}">Finalizado</option>
         </select>
         <label for="floatingSelect">Estado</label>
+=======
+
+    <div class="col-md-6 form-floating ">
+        <select name="estado"  class="form-select">
+
+            <option value="{{  $reclamo->estado  }}">{{$reclamo->estado}}</option>
+            <option value="iniciado"{{  $reclamo->estado == 'iniciado' ? 'selected':'' }}>Iniciado</option>
+            <option value= "en proceso" {{  $reclamo->estado == 'en_proceso' ? 'selected':'' }}">En proceso</option>
+            <option value="finalizado"{{  $reclamo->estado == 'finalizado' ? 'selected':'' }}">Finalizada</option>
+
+        </select>
+        <label for="floatingTextarea2">Estado</label>
+>>>>>>> 0ba131eee7d643625605643e6c9a23886d77e91b
     </div>
+
+
+
      <div class="form-floating">
+<<<<<<< HEAD
         <textarea class="form-control" name="descripcion_problema"  placeholder="Descripcion de Laumayer" id="floatingTextarea2" style="height: 100px">{{  $reclamo->descripcion_problema }} </textarea>
+=======
+        <textarea class="form-control" name="descripcion_problema"   placeholder="Descripcion de Laumayer" id="floatingTextarea2" style="height: 100px">{{  $reclamo->descripcion_problema }}</textarea>
+>>>>>>> 0ba131eee7d643625605643e6c9a23886d77e91b
         <label for="floatingTextarea2">Descripcion del problema</label>
 
       </div>
 
     <div class="form-floating">
+<<<<<<< HEAD
         <textarea class="form-control" name="descripcion_revision"  placeholder="Descripcion_revision" id="floatingTextarea2" style="height: 100px">{{  $reclamo->descripcion_revision }}</textarea>
         <label for="floatingTextarea2">Respuesta de revision</label>
       </div>
@@ -97,36 +126,60 @@
             <option value="{{  $reclamo->solucion }}">{{  $reclamo->solucion }}</option>
             <option value="no_aplica">No Aplica Garantia</option>
             <option value="aplica">Aplica Garantia</option>
+=======
+        <textarea class="form-control" name="descripcion_revision"   placeholder="Descripcion_revision" id="floatingTextarea2" style="height: 100px">{{  $reclamo->descripcion_revision }}</textarea>
+        <label for="floatingTextarea2">Respuesta de revision</label>
+      </div>
 
+>>>>>>> 0ba131eee7d643625605643e6c9a23886d77e91b
+
+
+    <div class="col-md-6 form-floating">
+        <select name="solucion"  class="form-select">
+            <option value="{{  $reclamo->solucion  }}">{{  $reclamo->solucion  }}</option>
+            <option value="No aplica garantia"{{  $reclamo->solucion  }}>No Aplica Garantia</option>
+            <option value="Aplica Garantia"{{  $reclamo->solucion  }}>Aplica Garantia</option>
         </select>
+        <label for="floatingTextarea2">Solucion</label>
     </div>
 
-    <div class="col-md-6">
-        <select name="tipo_garantia"  value="{{  $reclamo->tipo_garantia }}"class="form-select">
-            <option selected>Tipo de Garantia</option>
-            <option value="tecnica">Tecnica</option>
-            <option value="interna">Interna</option>
-            <option value="comercial">Comercial</option>
+    <div class="col-md-6 form-floating">
+        <select name="tipo_garantia" class="form-select">
+
+            <option value= "{{  $reclamo->tipo_garantia }}">{{  $reclamo->tipo_garantia }}</option>
+            <option value= "Tecnica"{{  $reclamo->tipo_garantia == 'tecnica' ? 'selected':'' }}>Tecnica</option>
+            <option value="Interna"{{  $reclamo->tipo_garantia == 'interna' ? 'selected':'' }}>Interna</option>
+            <option value="Comercial"{{  $reclamo->tipo_garantia == 'comercial' ? 'selected':'' }}>Comercial</option>
         </select>
+        <label for="floatingTextarea2">Tipo de Garantia</label>
     </div>
 
 
 
-    <div class="col-md-6">
+
+
+    <div class="col-md-6 form-floating">
         <input class="form-control" name="num_documento"  value="{{ $reclamo->num_documento }}" type="text" placeholder="Tipo de Documento">
+        <label for="floatingTextarea2">Tipo de Documento</label>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 form-floating">
         <input class="form-control" name="consecutivo_carta"  value="{{  $reclamo->consecutivo_carta }}" type="text" placeholder="Consecutivo carta">
+        <label for="floatingTextarea2">Consecutivo carta</label>
     </div>
 
     <div class="form-floating">
+<<<<<<< HEAD
         <textarea class="form-control" name="observaciones"  placeholder="Observaciones" id="floatingTextarea2" style="height: 100px">{{  $reclamo->observaciones }}</textarea>
+=======
+        <textarea class="form-control" name="observaciones"   placeholder="Descripcion d eLaumayer" id="floatingTextarea2" style="height: 100px">{{  $reclamo->observaciones }}</textarea>
+        <label for="floatingTextarea2">Observaciones</label>
+>>>>>>> 0ba131eee7d643625605643e6c9a23886d77e91b
       </div>
 
       <div class="mb-2 d-flex">
 
-        <button class="mt-2 btn btn-dark px-4 py-2" type="submit"><i class="bi bi-send-plus-fill"></i>  Enviar</button>
+        <button class="mt-2 btn btn-dark px-4 py-2" type="submit"><i class="bi bi-send-plus-fill"></i> editar</button>
         <a href="{{ route('reclamacion.index')}}" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2"><i class="bi bi-arrow-left-circle"></i> Atras</a>
       </div>
     </form>

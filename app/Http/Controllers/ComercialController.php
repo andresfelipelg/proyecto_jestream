@@ -35,7 +35,7 @@ class ComercialController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
