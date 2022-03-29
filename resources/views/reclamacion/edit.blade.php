@@ -72,29 +72,29 @@
         </select>
      </div>
 
-     <div class="col-md-6">
-        <select name="estado"  value="{{  $reclamo->estado }}" class="form-select">
-
-            <option value="{{  $reclamo->estado }}">{{  $reclamo->estado }}</option>
-            <option value="iniciado">Iniciado</option>
-            <option value="en_proceso">En proceso</option>
-            <option value="finalizado">Finalizada</option>
-
+     <div class="col-md-6 form-floating">
+        <select name="estado"  class="form-select">
+            <option value="{{  $reclamo->estado === "iniciado" ? 'selected':''}}">Iniciado</option>
+            <option value="{{  $reclamo->estado  === "En proceso" ? 'selected':'' }}">En proceso</option>
+            <option value="{{  $reclamo->estado === "Finalizado" ? 'selected':'' }}">Finalizado</option>
         </select>
+        <label for="floatingSelect">Estado</label>
     </div>
      <div class="form-floating">
-        <textarea class="form-control" name="descripcion_problema"  value="{{  $reclamo->descripcion_problema }}" placeholder="Descripcion de Laumayer" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" name="descripcion_problema"  placeholder="Descripcion de Laumayer" id="floatingTextarea2" style="height: 100px">{{  $reclamo->descripcion_problema }} </textarea>
         <label for="floatingTextarea2">Descripcion del problema</label>
+
       </div>
 
     <div class="form-floating">
-        <textarea class="form-control" name="descripcion_revision"  value="{{  $reclamo->descripcion_revision }}" placeholder="Descripcion_revision" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" name="descripcion_revision"  placeholder="Descripcion_revision" id="floatingTextarea2" style="height: 100px">{{  $reclamo->descripcion_revision }}</textarea>
         <label for="floatingTextarea2">Respuesta de revision</label>
       </div>
 
       <div class="col-md-6">
         <select name="solucion"  value="{{  $reclamo->solucion }}" class="form-select">
-            <option selected>Solucion</option>
+            <option value="">---Solucion---</option>
+            <option value="{{  $reclamo->solucion }}">{{  $reclamo->solucion }}</option>
             <option value="no_aplica">No Aplica Garantia</option>
             <option value="aplica">Aplica Garantia</option>
 
@@ -121,8 +121,7 @@
     </div>
 
     <div class="form-floating">
-        <textarea class="form-control" name="observaciones"  value="{{  $reclamo->observaciones }}" placeholder="Descripcion d eLaumayer" id="floatingTextarea2" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Observaciones</label>
+        <textarea class="form-control" name="observaciones"  placeholder="Observaciones" id="floatingTextarea2" style="height: 100px">{{  $reclamo->observaciones }}</textarea>
       </div>
 
       <div class="mb-2 d-flex">

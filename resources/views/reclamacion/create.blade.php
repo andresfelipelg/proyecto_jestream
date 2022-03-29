@@ -66,7 +66,7 @@
         <select name="marca" class="form-select">
             <option selected>Marca</option>
             @foreach ($marcas as $marca)
-            <option value=">{{$marca->marca}}">{{$marca->marca}}</option>
+            <option value="{{$marca->marca}}">{{$marca->marca}}</option>
             @endforeach
         </select>
      </div>
@@ -74,9 +74,9 @@
      <div class="col-md-6">
         <select name="estado" class="form-select">
             <option selected>Estado</option>
-            <option value="iniciado">Iniciada</option>
-            <option value="en_proceso">En proceso</option>
-            <option value="finalizado">Finalizada</option>
+            <option value="Iniciada">Iniciada</option>
+            <option value="En proceso">En proceso</option>
+            <option value="Finalizada">Finalizada</option>
         </select>
     </div>
      <div class="form-floating">
