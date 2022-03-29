@@ -32,8 +32,8 @@
                  <form  class ="" action="{{ route('reclamacion.delete',$reclamacion->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('reclamacion.edit',$reclamacion->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-eye"></i> Editar</a>
-                <a href="{{ route('reclamacion.show',$reclamacion->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                <a href="{{ route('reclamacion.show',$reclamacion->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-eye"></i> Ver</a>
+                <a href="{{ route('reclamacion.edit',$reclamacion->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>

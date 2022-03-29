@@ -123,7 +123,7 @@
       </div>
 
       <div class="mb-2 d-flex">
-
+        <a href="{{ route('reclamacion.edit',$reclamo->id)}}" class="mt-2 btn btn-dark px-4 py-2 "><i class="bi bi-pencil-square"></i> Editar</a>
         <a href="{{ route('reclamacion.index')}}" class="mt-2 btn btn-secondary text-white btn-outline-dark ms-2 px-4 py-2"><i class="bi bi-arrow-left-circle"></i> Atras</a>
       </div>
     </form>
