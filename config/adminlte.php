@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Reclamacion',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -244,43 +244,38 @@ return [
 
         [
             'text' => 'reclamacion',
-            'url'  => 'admin/blog',
+            'url'  =>'reclamacion/index',
             'can'  => 'manage-blog',
         ],
 
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
 
         [
             'text'        => 'Reclamacion',
             'url'         => 'reclamacion/index',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-microchip',
             'label_color' => 'success',
         ],
 
         [
             'text'        => 'Marcas',
             'url'         => 'marcas/index',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-globe',
             'label_color' => 'success',
         ],
 
         [
             'text'        => 'Productos',
             'url'         => 'productos/index',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-globe',
             'label_color' => 'success',
         ],
 
-        [
-            'text'        => 'reclamacion',
-            'url'         => 'reclamacion/index',
-            'icon'        => 'far fa-fw fa-share',
-            'label_color' => 'success',
-        ],
+
         ['header' => 'account_settings'],
         [
             'text' => 'perfil',
@@ -289,7 +284,7 @@ return [
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/register',
+            'url'  => '/register',
             'icon' => 'fas fa-fw fa-lock',
         ],
 

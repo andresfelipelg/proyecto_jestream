@@ -12,8 +12,10 @@ class HomeController extends Controller
         return view('admin.index');
     }
 
-    public function register()
-    {
-        return view('auth.register');
-    }
+//     public function register()
+//     {
+//         return view('auth.register');
+//     }
+//
+
 }

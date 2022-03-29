@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/', function () {
+    return view('auth.login');
+});
+
 //Crud de Marcas
 Route::get('/marcas/index',[MarcaController::class,'index'])->name('marcas.index');
 Route::get('/marcas/create',[MarcaController::class,'create'])->name('marcas.create');
