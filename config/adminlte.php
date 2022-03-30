@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'Reclamacion',
-    'title_prefix' => '',
+    'title' => '',
+    'title_prefix' => 'Garantias',
     'title_postfix' => '',
 
     /*
@@ -244,15 +244,10 @@ return [
 
         [
             'text' => 'reclamacion',
-            'url'  =>'reclamacion/index',
+            'route'  =>'reclamacion/index',
             'can'  => 'manage-blog',
         ],
 
-        // [
-        //     'text' => 'blog',
-        //     'url'  => 'admin/blog',
-        //     'can'  => 'manage-blog',
-        // ],
 
         [
             'text'        => 'Reclamacion',
@@ -271,7 +266,7 @@ return [
         [
             'text'        => 'Productos',
             'url'         => 'productos/index',
-            'icon'        => 'fas fa-globe',
+            'icon'        => 'fab fa-empire',
             'label_color' => 'success',
         ],
 
