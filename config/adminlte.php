@@ -278,8 +278,8 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => '/register',
+            'text' => 'register',
+            'url'  => '/users/index',
             'icon' => 'fas fa-fw fa-lock',
         ],
 

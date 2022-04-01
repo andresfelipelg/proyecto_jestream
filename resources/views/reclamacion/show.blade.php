@@ -16,7 +16,7 @@
         @csrf
         @method('PUT')
         <i class=" text-white display-3 bi bi-clipboard-data-fill"></i>
-        <h1 class= "mt-4 h2 font-weight-normal text-white" >Editar Reclamacion</h1>
+        <h1 class= "mt-4 h2 font-weight-normal text-white" >Mostrar Reclamacion</h1>
 
 
         <div class="form-floating col-md-6">
