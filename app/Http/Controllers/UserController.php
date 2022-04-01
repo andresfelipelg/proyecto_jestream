@@ -41,7 +41,7 @@ class UserController extends Controller
         +[
             'password'=>bcrypt($request->input('password'))
         ]);
-        return redirect()->back();
+        return redirect(route('users.index'));
     }
 
     /**
@@ -63,7 +63,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit',compact('user'));
+
     }
 
     /**
@@ -75,7 +77,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $data = $request->only('name','email');
+
+        if(trim($request->password) === '')
+        {
+          $data = $request->except('password');
+        }
+        else
+        {
+            $data=$request->all();
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $user->update($data);
+        return redirect(route('users.index'));
     }
 
     /**
@@ -86,6 +102,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect(route('users.index'));
     }
 }

@@ -12,20 +12,21 @@
 
     <div class="col-4 pt-5 m-auto ">
         <div class="text-center mt-5 mb-5 ">
-    <form  action="{{route('users.store') }}" method="POST" class="mb-5">
+    <form  action="{{route('users.update',$user->id) }}" method="POST" class="mb-5">
         @csrf
+        @method('PUT')
         <i class=" display-2 text-white bi bi-person-circle "></i>
-        <h1 class= "mt-4 h2 font-weight-normal text-white" >Nuevo Usuario</h1>
+        <h1 class= "mt-4 h2 font-weight-normal text-white" >Editar Usuario</h1>
 
         <div class="mb-3 mt-3 text-start">
-            <input class="form-control" name="name" type="text" placeholder="Ingrese el nombre">
+            <input class="form-control" name="name" value="{{$user->name}}" type="text" placeholder="Ingrese el nombre">
        </div>
 
        <div class="mb-3 mt-3 text-start">
-           <input class="form-control" name="email" type="email" placeholder="Ingrese el email">
+           <input class="form-control" name="email" value="{{$user->email}}" type="email" placeholder="Ingrese el email">
      </div>
      <div class="mb-3 mt-3 text-start">
-        <input class="form-control" name="password" type="password" placeholder="Ingrese la contraseña">
+        <input class="form-control" name="password"  type="password" placeholder="Ingrese de nuevo la contraseña si desea cambiarla">
     </div>
 
 

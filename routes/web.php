@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/usuario/register', function () {
     return view('auth.register');
-});
+})->middleware('auth');
 
 //Crud de Marcas
 Route::get('/marcas/index',[MarcaController::class,'index'])->name('marcas.index');
