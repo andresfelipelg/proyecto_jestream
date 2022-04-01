@@ -279,7 +279,7 @@ return [
         ],
         [
             'text' => 'change_password',
-            'url'  => 'auth/register',
+            'url'  => '',
             'icon' => 'fas fa-fw fa-lock',
         ],
 

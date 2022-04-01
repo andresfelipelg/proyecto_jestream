@@ -54,9 +54,9 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function show(Marca $marca)
+    public function registro()
     {
-        //
+        return view('marcas.registro');
     }
 
     /**
