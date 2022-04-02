@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'reclamacion/index',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -271,7 +271,7 @@ return [
         ],
 
 
-        ['header' => 'account_settings'],
+        ['header' => 'Configuracion de Usuario'],
         [
             'text' => 'perfil',
             'url'  => 'user/profile',
