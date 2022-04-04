@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Modulo</b> Garantias',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
-    'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo' => ' <b>Modulo</b> Garantias ',
+    'logo_img' => 'vendor/adminlte/dist/img/logo2.png',
+    'logo_img_class' => 'brand-image <br> img-circle elevation-3',
+    'logo_img_xl' => false,
+    'logo_img_xl_class' => 'brand-image-xl',
+    'logo_img_alt' => 'Logo Laumayer',
 
     /*
     |--------------------------------------------------------------------------
@@ -123,7 +123,7 @@ return [
 
     'classes_body' => '',
     'classes_brand' => '',
-    'classes_brand_text' => '',
+    'classes_brand_text' => '<br>',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
