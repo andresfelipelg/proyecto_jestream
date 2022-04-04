@@ -188,13 +188,14 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'reclamacion/index',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => false,
+    'route'=>'users/index',
 
     /*
     |--------------------------------------------------------------------------
@@ -279,7 +280,7 @@ return [
         ],
         [
             'text' => 'change_password',
-            'url'  => '',
+            'url'  => '/users/index',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
