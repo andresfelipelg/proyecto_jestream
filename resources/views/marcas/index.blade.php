@@ -1,11 +1,15 @@
 @extends('adminlte::page')
 
+@section('content_header')
+    <h1 class="h1 font-weight-bold ">Marcas</h1>
+@stop
+
 @section('content')
 
-<a href="{{ route('marcas.create') }}" class="btn btn-outline-primary mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
+<a href="{{ route('marcas.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
 
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="articulos">
-     <thead class="bg-primary  text-white">
+     <thead class="color  text-white">
          <tr>
              <th scope="col">ID</th>
              <th scope="col">Nombre</th>
@@ -23,7 +27,7 @@
                  <form  class ="" action="{{ route('marcas.delete',$marca->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-outline-primary d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>
@@ -37,9 +41,9 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{asset('../../css/style.css')}}">
 @stop
 
 @section('js')

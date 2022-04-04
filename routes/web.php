@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ReclamoController;
 use App\Http\Controllers\UserController;
@@ -60,6 +61,17 @@ Route::post('/users/store',[UserController::class,'store'])->name('users.store')
 Route::get('/users/edit/{id}',[UserController::class,'edit'])->name('users.edit');
 Route::put('/users/update/{id}',[UserController::class,'update'])->name('users.update');
 Route::delete('/users/delete/{id}',[UserController::class,'destroy'])->name('users.delete');
+
+//Permission
+Route::get('/permissions/index',[PermissionController::class,'index'])->name('permissions.index');
+Route::get('/permissions/create',[PermissionController::class,'create'])->name('permissions.create');
+Route::post('/permissions/store',[PermissionController::class,'store'])->name('permissions.store');
+Route::get('/permissions/edit/{id}',[PermissionController::class,'edit'])->name('permissions.edit');
+Route::put('/permissions/update/{id}',[PermissionController::class,'update'])->name('permissions.update');
+Route::delete('/permissions/delete/{id}',[PermissionController::class,'destroy'])->name('permissions.delete');
+
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

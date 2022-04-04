@@ -1,3 +1,29 @@
 .color{
-    background-color: #013c4e;;
+    background-color: #013c4e;
+}
+
+.button{
+    border-style: solid;
+    color:#013c4e;
+    border-color: #013c4e;
+}
+
+.button:hover{
+    background-color: #013c4e;
+}
+
+.puntero{
+    color:#013c4e ;
+}
+
+
+
+
+
+olive{
+    color: #013c4e;
+}
+
+ .nav-link a :active{
+    background: #013c4e;
 }
