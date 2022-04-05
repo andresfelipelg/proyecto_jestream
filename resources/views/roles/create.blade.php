@@ -29,13 +29,13 @@
               <div class="tab-pane active">
                 <table class="table">
                   <tbody>
-                    @foreach ($permissions as $permission)
+                    @foreach ($permissions as $id => $permission)
                     <tr>
                       <td>
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input class=" form-check-input" type="checkbox" name="permissions[]"
-                              value="{{ $permission->id }}">
+                            <input class=" form-check-input" type="checkbox" name="permission"
+                              value="{{ $id }}">
                             <span class=" form-check-sign">
                               <span class="check"></span>
                             </span>
@@ -43,7 +43,7 @@
                         </div>
                       </td>
                       <td class="text-white">
-                        {{ $permission->name }}
+                        {{ $permission }}
                       </td>
                     </tr>
                   @endforeach

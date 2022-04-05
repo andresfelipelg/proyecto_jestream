@@ -18,7 +18,7 @@
          </tr>
      </thead>
      <tbody>
-        @foreach ($roles as $rol )
+        @forelse ($roles as $rol )
 
          <tr>
             <td>{{$rol->id }}</td>
@@ -27,7 +27,7 @@
                 @forelse ($permissions as $permission)
                     <span class="badge color text-white">{{ $permission->name }}</span>
                 @empty
-                <span class="badge color text-white">no jay permisos</span>
+                <span class="badge color text-white">no ay permisos</span>
                 @endforelse
             </td>
 
@@ -41,8 +41,9 @@
             </form>
             </td>
          </tr>
-
-         @endforeach
+         @empty
+         <td colspan="2">Sin registros.</td>
+         @endforelse
 
      </tbody>
    </table>
