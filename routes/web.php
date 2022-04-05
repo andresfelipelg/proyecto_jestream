@@ -5,6 +5,7 @@ use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ReclamoController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 
@@ -70,7 +71,13 @@ Route::get('/permissions/edit/{id}',[PermissionController::class,'edit'])->name(
 Route::put('/permissions/update/{id}',[PermissionController::class,'update'])->name('permissions.update');
 Route::delete('/permissions/delete/{id}',[PermissionController::class,'destroy'])->name('permissions.delete');
 
-
+//Roles
+Route::get('/roles/index',[RoleController::class,'index'])->name('roles.index');
+Route::get('/roles/create',[RoleController::class,'create'])->name('roles.create');
+Route::post('/roles/store',[RoleController::class,'store'])->name('roles.store');
+Route::get('/roles/edit/{id}',[RoleController::class,'edit'])->name('roles.edit');
+Route::put('/roles/update/{id}',[RoleController::class,'update'])->name('roles.update');
+Route::delete('/roles/delete/{id}',[RoleController::class,'destroy'])->name('roles.delete');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

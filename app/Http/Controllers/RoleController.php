@@ -13,11 +13,17 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $roles = Role::all();
+        $permissions = Permission::all();
 
-        return view('roles.index', compact('roles'));
+        return view('roles.index', compact('roles','permissions'));
     }
 
     /**
@@ -42,8 +48,8 @@ class RoleController extends Controller
     {
         $role = Role::create($request->only('name'));
 
-        // $role->permissions()->sync($request->input('permissions', []));
-        $role->syncPermissions($request->input('permissions', []));
+         $role->permissions()->sync($request->input('permissions', []));
+        //$role->syncPermissions($request->input('permissions', []));
 
         return redirect()->route('roles.index');
     }
@@ -67,7 +73,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $permissions = Permission::all()->pluck('name', 'id');
+        $permissions = Permission::all();
         $role->load('permissions');
         // dd($role);
         return view('roles.edit', compact('role', 'permissions'));

@@ -16,7 +16,7 @@
         @csrf
         @method('PUT')
         <i class=" display-2 text-white bi bi-person-circle "></i>
-        <h1 class= "mt-4 h2 font-weight-normal text-white" >Editar Rol</h1>
+        <h1 class= "mt-4 h2 font-weight-normal text-white" >Editar Permiso</h1>
 
         <div class="mb-3 mt-3 text-start">
             <input class="form-control" name="name"

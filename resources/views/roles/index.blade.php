@@ -1,34 +1,41 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1 class="h1 font-weight-bold ">Permisos</h1>
+    <h1 class="h1 font-weight-bold ">Roles</h1>
 @stop
 
 @section('content')
 
-<a href="{{ route('permissions.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
+<a href="{{ route('roles.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
 
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="permisos">
      <thead class="color   text-white">
          <tr>
              <th scope="col">ID</th>
              <th scope="col">Nombre</th>
-             <th scope="col">Guard</th>
+             <th scope="col">Permisos</th>
              <th scope="col">Acciones</th>
          </tr>
      </thead>
      <tbody>
-        @foreach ($permissions as $permission )
+        @foreach ($roles as $rol )
 
          <tr>
-            <td>{{$permission->id }}</td>
-            <td>{{$permission->name }}</td>
-            <td>{{$permission->guard_name }}</td>
+            <td>{{$rol->id }}</td>
+            <td>{{$rol->name }}</td>
+            <td>
+                @forelse ($permissions as $permission)
+                    <span class="badge color text-white">{{ $permission->name }}</span>
+                @empty
+                <span class="badge color text-white">no jay permisos</span>
+                @endforelse
+            </td>
+
          <td>
-                 <form  class ="" action="{{ route('permissions.delete',$permission->id) }}" method="post">
+                 <form  class ="" action="{{ route('roles.delete',$rol->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('permissions.edit',$permission->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                <a href="{{ route('permissions.edit',$rol->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>
@@ -36,9 +43,7 @@
          </tr>
 
          @endforeach
-         @empty($permissions)
-             no hay nada
-         @endempty
+
      </tbody>
    </table>
 

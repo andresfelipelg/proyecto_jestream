@@ -15,7 +15,7 @@
     <form  action="{{route('permissions.store') }}" method="POST" class="mb-5">
         @csrf
         <i class=" display-2 text-white bi bi-person-circle "></i>
-        <h1 class= "mt-4 h2 font-weight-normal text-white" >Nuevo Rol</h1>
+        <h1 class= "mt-4 h2 font-weight-normal text-white" >Nuevo Permiso</h1>
 
         <div class="mb-3 mt-3 text-start">
             <input class="form-control" name="name" type="text" placeholder="Ingrese el nombre del permiso">
