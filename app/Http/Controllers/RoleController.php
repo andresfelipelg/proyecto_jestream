@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -21,9 +22,9 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        $permissions = Permission::all();
+        //$permissions = Permission::all();
 
-        return view('roles.index', compact('roles','permissions'));
+        return view('roles.index', compact('roles'));
     }
 
     /**
@@ -71,9 +72,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+      public function edit(Role $role)
     {
-        $permissions = Permission::all();
+        $permissions = Permission::all()->pluck('name','id');
         $role->load('permissions');
         // dd($role);
         return view('roles.edit', compact('role', 'permissions'));
@@ -86,7 +87,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
         $role->update($request->only('name'));
 
@@ -102,7 +103,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
         $role->delete();
 

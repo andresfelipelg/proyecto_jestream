@@ -18,13 +18,13 @@
          </tr>
      </thead>
      <tbody>
-        @forelse ($roles as $rol )
+        @forelse ($roles as $role )
 
          <tr>
-            <td>{{$rol->id }}</td>
-            <td>{{$rol->name }}</td>
+            <td>{{$role->id }}</td>
+            <td>{{$role->name }}</td>
             <td>
-                @forelse ($permissions as $permission)
+                @forelse ($role->permissions as $permission)
                     <span class="badge color text-white">{{ $permission->name }}</span>
                 @empty
                 <span class="badge color text-white">no hay permisos</span>
@@ -32,17 +32,19 @@
             </td>
 
          <td>
-                 <form  class ="" action="{{ route('roles.delete',$rol->id) }}" method="post">
+                 <form  class ="" action="{{ route('roles.delete',$role->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('permissions.edit',$rol->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                <a href="{{ route('roles.edit',$role->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>
             </td>
          </tr>
          @empty
+         <tr>
          <td colspan="2">Sin registros.</td>
+        </tr>
          @endforelse
 
      </tbody>
