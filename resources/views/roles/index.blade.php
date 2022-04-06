@@ -27,7 +27,7 @@
                 @forelse ($permissions as $permission)
                     <span class="badge color text-white">{{ $permission->name }}</span>
                 @empty
-                <span class="badge color text-white">no ay permisos</span>
+                <span class="badge color text-white">no hay permisos</span>
                 @endforelse
             </td>
 
