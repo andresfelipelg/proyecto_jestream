@@ -30,24 +30,24 @@
               <div class="tab-pane active">
                 <table class="table">
                   <tbody>
-                    @foreach ($permissions as $id => $permission)
                     <tr>
-                      <td>
+                      <td class="text-white">
                         <div class="form-check">
-                          <label class="form-check-label">
-                            <input class=" form-check-input" type="checkbox" name="permissions[]"
-                              value="{{ $id }}" {{ $role->permissions->contains($id) ? 'checked' : '' }}>
-                            <span class=" form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
+                          <label class="form-check-label" class="text-white">ver</label>
+                          <input class=" form-check-input" type="checkbox" name="permissions">
+                          <br>
+                          <label class="form-check-label" class="text-white">editar</label>
+                          <input class=" form-check-input" type="checkbox" name="permissions">
+                          <br>
+                          <label class="form-check-label" class="text-white">crear</label>
+                          <input class=" form-check-input" type="checkbox" name="permissions">
+                          <br>
+                          <label class="form-check-label" class="text-white">borrar</label>
+                          <input class=" form-check-input" type="checkbox" name="permissions">
+                          <br>
                         </div>
                       </td>
-                      <td class="text-white">
-                        {{ $permission }}
-                      </td>
                     </tr>
-                  @endforeach
                   </tbody>
                 </table>
               </div>
