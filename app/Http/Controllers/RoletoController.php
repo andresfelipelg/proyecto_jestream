@@ -15,13 +15,16 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $roles = Role::all();
         //$permissions = Permission::all();
 
-        return view('roles.index', compact('roles'));
+        return view('role.index', compact('roles'));
     }
 
     /**

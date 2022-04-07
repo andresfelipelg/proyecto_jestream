@@ -76,9 +76,10 @@ Route::get('/roles/index',[RoleController::class,'index'])->name('roles.index');
 Route::get('/roles/create',[RoleController::class,'create'])->name('roles.create');
 Route::post('/roles/store',[RoleController::class,'store'])->name('roles.store');
 Route::get('/roles/edit/{id}',[RoleController::class,'edit'])->name('roles.edit');
-Route::put('/roles/update/{id}',[RoleController::class,'update'])->name('roles.update');
+Route::put('/roles/update/',[RoleController::class,'update'])->name('roles.update');
 Route::delete('/roles/delete/{id}',[RoleController::class,'destroy'])->name('roles.delete');
 
+//Route::resource('roles', App\Http\Controllers\RoleController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
