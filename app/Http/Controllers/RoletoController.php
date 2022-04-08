@@ -15,13 +15,16 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $roles = Role::all();
         //$permissions = Permission::all();
 
-        return view('roles.index', compact('roles'));
+        return view('role.index', compact('roles'));
     }
 
     /**
@@ -71,15 +74,10 @@ class RoleController extends Controller
      */
       public function edit(Role $role)
     {
-
-        $permissions = Permission::all();
-
-         //dd($role);
-
-         return view('roles.edit',compact('permissions','role'));
-
-
-
+        $permissions = Permission::all()->pluck('name','id');
+        $role->load('permissions');
+        // dd($role);
+        return view('roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -105,11 +103,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        $role = Role::find($id);
         $role->delete();
-
 
         return redirect()->route('roles.index');
     }
