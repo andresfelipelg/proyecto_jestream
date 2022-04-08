@@ -29,22 +29,21 @@
             <div class="tab-content">
               <div class="tab-pane active">
                 <table class="table">
-                  <tbody>
-                    <tr>
-                      <td class="text-white">
-                        <div class="form-check">
-                          <label class="form-check-label" class="text-white">ver</label>
-                          <input class=" form-check-input" type="checkbox" name="permissions">
-                          <br>
-                          <label class="form-check-label" class="text-white">editar</label>
-                          <input class=" form-check-input" type="checkbox" name="permissions">
-                          <br>
-                          <label class="form-check-label" class="text-white">crear</label>
-                          <input class=" form-check-input" type="checkbox" name="permissions">
-                          <br>
-                          <label class="form-check-label" class="text-white">borrar</label>
-                          <input class=" form-check-input" type="checkbox" name="permissions">
-                          <br>
+                    <tbody>
+
+                        <tr>
+                            <td class="text-white">
+                                <div class="form-check">
+                                    @foreach ($permisos_existentes as $ver)
+                                    <input class=" form-check-input" value="{{ $ver->permission_id }}" type="checkbox" name="permissions">
+                                    @if ($ver)
+                                    <label class="form-check-label" class="text-white">ver</label>
+
+                                    @endif
+                                    <input class=" form-check-input" type="checkbox" name="permissions">
+                                    @endforeach
+
+
                         </div>
                       </td>
                     </tr>

@@ -75,7 +75,7 @@ Route::delete('/permissions/delete/{id}',[PermissionController::class,'destroy']
 Route::get('/roles/index',[RoleController::class,'index'])->name('roles.index');
 Route::get('/roles/create',[RoleController::class,'create'])->name('roles.create');
 Route::post('/roles/store',[RoleController::class,'store'])->name('roles.store');
-Route::get('/roles/edit/{id}',[RoleController::class,'edit'])->name('roles.edit');
+Route::get('/roles/edit/{role}',[RoleController::class,'edit'])->name('roles.edit');
 Route::put('/roles/update/{id}/',[RoleController::class,'update'])->name('roles.update');
 Route::delete('/roles/delete/{id}',[RoleController::class,'destroy'])->name('roles.delete');
 

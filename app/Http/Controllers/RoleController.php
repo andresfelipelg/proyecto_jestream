@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RoleHasPermission;
+use App\Models\RoleHasPermsission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -71,12 +74,19 @@ class RoleController extends Controller
      */
       public function edit(Role $role)
     {
+        //$role = RoleHasPermission::all();
 
-        $permissions = Permission::all();
+        $permisos_existentes = DB::table('role_has_permissions')
+        ->select('role_id', 'permission_id')
+        ->where('role_id','=',$role->id)
+        ->get();
 
-         //dd($role);
 
-         return view('roles.edit',compact('permissions','role'));
+        $permisos = DB::table('permissions')
+        ->select( 'name','id')
+        ->get();
+
+         return view('roles.edit',compact('permisos_existentes','role','permisos'));
 
 
 
