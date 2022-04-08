@@ -12,7 +12,7 @@
 
     <div class="col-4 pt-5 m-auto ">
         <div class="text-center mt-5 mb-5 ">
-    <form  action="{{route('roles.update',$role->id) }}" method="POST" class="mb-5">
+    <form  action="" method="POST" class="mb-5">
         @csrf
         @method('PUT')
         <i class=" display-2 text-white bi bi-person-circle "></i>
@@ -30,13 +30,13 @@
               <div class="tab-pane active">
                 <table class="table">
                   <tbody>
-                    @foreach ($permissions as $id => $permission)
+                    @foreach ($permissions as $permission)
                     <tr>
                       <td>
                         <div class="form-check">
                           <label class="form-check-label">
-                            <input class=" form-check-input" type="checkbox" name="permissions[]"
-                              value="{{ $id }}" {{ $role->permissions->contains($id) ? 'checked' : '' }}>
+                            <input class=" form-check-input" type="checkbox" name="permissions"
+                              value="">
                             <span class=" form-check-sign">
                               <span class="check"></span>
                             </span>

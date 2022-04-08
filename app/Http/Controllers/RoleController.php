@@ -74,10 +74,15 @@ class RoleController extends Controller
      */
       public function edit(Role $role)
     {
-        $permissions = Permission::all()->pluck('name','id');
-        $role->load('permissions');
-        // dd($role);
-        return view('roles.edit', compact('role', 'permissions'));
+
+        $permissions = Permission::all();
+
+         //dd($role);
+
+         return view('roles.edit',compact('permissions','role'));
+
+
+
     }
 
     /**
@@ -103,9 +108,11 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy($id)
     {
+        $role = Role::find($id);
         $role->delete();
+
 
         return redirect()->route('roles.index');
     }
