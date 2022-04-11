@@ -6,8 +6,9 @@
 
 @section('content')
 
+@can('reclamacion_create')
 <a href="{{ route('reclamacion.create') }}" class="btn btn-outline-success  button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
-
+@endcan
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="reclamacion" id="reclamo">
      <thead class="color  text-white">
          <tr>
@@ -37,9 +38,12 @@
                  @csrf
                  @method('DELETE')
                 <a href="{{ route('reclamacion.show',$reclamacion->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-eye"></i> Ver</a>
+                @can('reclamacion_edit')
                 <a href="{{ route('reclamacion.edit',$reclamacion->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                @endcan
+                @can('reclamacion_destroy')
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
-
+                @endcan
             </form>
             </td>
          </tr>

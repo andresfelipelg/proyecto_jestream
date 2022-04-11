@@ -6,7 +6,10 @@
 
 @section('content')
 
+@can('user_create')
 <a href="{{ route('users.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
+@endcan
+
 
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="usuarios" id="usuario">
      <thead class="color text-white">
@@ -14,6 +17,7 @@
              <th scope="col">ID</th>
              <th scope="col">Nombre</th>
              <th scope="col">Email</th>
+             <th scope="col">Roles</th>
              <th scope="col">Acciones</th>
          </tr>
      </thead>
@@ -24,6 +28,15 @@
             <td>{{$user->id }}</td>
             <td>{{$user->name }}</td>
             <td>{{$user->email }}</td>
+            <td>
+                @forelse ($user->roles as $role)
+                    <span class=" badge color text-white">
+                        {{ $role->name }}
+                    </span>
+                @empty
+                <span class="badge color text-white">no hay permisos</span>
+                @endforelse
+            </td>
          <td>
                  <form  class ="" action="{{ route('users.delete',$user->id) }}" method="post">
                  @csrf

@@ -6,14 +6,17 @@
 
 @section('content')
 
+@can('marca_create')
 <a href="{{ route('marcas.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
-
+@endcan
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="articulos">
      <thead class="color  text-white">
          <tr>
              <th scope="col">ID</th>
              <th scope="col">Nombre</th>
+             @can('marca_destroy')
              <th scope="col">Accion</th>
+             @endcan
          </tr>
      </thead>
      <tbody>
@@ -27,9 +30,12 @@
                  <form  class ="" action="{{ route('marcas.delete',$marca->id) }}" method="post">
                  @csrf
                  @method('DELETE')
+                 @can('marca_edit')
                 <a href="{{ route('marcas.edit',$marca->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                @endcan
+                @can('marca_destroy')
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
-
+                @endcan
             </form>
             </td>
          </tr>

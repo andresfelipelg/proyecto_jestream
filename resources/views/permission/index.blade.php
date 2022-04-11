@@ -6,7 +6,7 @@
 
 @section('content')
 
-<a href="{{ route('permissions.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
+{{-- <a href="{{ route('permissions.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a> --}}
 
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="permisos">
      <thead class="color   text-white">
@@ -14,7 +14,7 @@
              <th scope="col">ID</th>
              <th scope="col">Nombre</th>
              <th scope="col">Guard</th>
-             <th scope="col">Acciones</th>
+             {{-- <th scope="col">Acciones</th> --}}
          </tr>
      </thead>
      <tbody>
@@ -24,7 +24,7 @@
             <td>{{$permission->id }}</td>
             <td>{{$permission->name }}</td>
             <td>{{$permission->guard_name }}</td>
-         <td>
+         {{-- <td>
                  <form  class ="" action="{{ route('permissions.delete',$permission->id) }}" method="post">
                  @csrf
                  @method('DELETE')
@@ -32,7 +32,7 @@
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>
-            </td>
+            </td> --}}
          </tr>
 
          @endforeach

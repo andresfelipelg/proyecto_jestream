@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProductoController extends Controller
 {
@@ -14,6 +15,7 @@ class ProductoController extends Controller
 
     public function index()
     {
+        abort_if(Gate::denies('producto_index'),403);
         $productos = Producto::all();
 
         return view('productos.index',compact('productos'));
@@ -26,6 +28,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('producto_create'),403);
         return view ('productos.create');
     }
 
@@ -66,7 +69,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $id)
     {
-
+        abort_if(Gate::denies('producto_edit'),403);
 
         return view ('productos.edit', compact('id'));
 
@@ -96,6 +99,7 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
+        abort_if(Gate::denies('producto_destroy'),403);
         $marca = Producto::find($id);
         $marca->delete();
 

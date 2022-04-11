@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Marca;
+use Illuminate\Support\Facades\Gate;
 
 class MarcaController extends Controller
 
@@ -17,6 +18,7 @@ class MarcaController extends Controller
 
     public function index()
     {
+        abort_if(Gate::denies('marca_index'),403);
         $marcas = Marca::all();
 
         return view('marcas.index',compact('marcas'));
@@ -29,6 +31,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('marca_create'),403);
         return view ('marcas.create');
     }
 
@@ -54,10 +57,6 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function registro()
-    {
-        return view('marcas.registro');
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -65,10 +64,10 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
+
     public function edit(Marca $id)
     {
-
-
+        abort_if(Gate::denies('marca_edit'),403);
         return view ('marcas.edit', compact('id'));
 
     }
@@ -97,6 +96,7 @@ class MarcaController extends Controller
      */
     public function destroy($id)
     {
+        abort_if(Gate::denies('marca_destroy'),403);
         $marca = Marca::find($id);
         $marca->delete();
 

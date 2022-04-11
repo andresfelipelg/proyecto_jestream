@@ -18,9 +18,16 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
 
     public function index()
     {
+        abort_if(Gate::denies('role_index'),403);
         $roles = Role::all();
         //$permissions = Permission::all();
 
@@ -34,6 +41,7 @@ class RoleController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('role_create'),403);
         $permissions = Permission::all()->pluck('name', 'id');
 
         return view('roles.create', compact('permissions'));
@@ -47,10 +55,11 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+
         $role = Role::create($request->only('name'));
 
-         $role->permissions()->sync($request->input('permissions', []));
-        //$role->syncPermissions($request->input('permissions', []));
+        // $role->permissions()->sync($request->input('permissions', []));
+        $role->syncPermissions($request->input('permissions', []));
 
         return redirect()->route('roles.index');
     }
@@ -75,6 +84,8 @@ class RoleController extends Controller
       public function edit(Role $role)
     {
         //$role = RoleHasPermission::all();
+
+        abort_if(Gate::denies('role_edit'),403);
 
         $permisos_existentes = DB::table('role_has_permissions')
         ->select('role_id', 'permission_id')
@@ -101,10 +112,11 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
+
         $role->update($request->only('name'));
 
-         $role->permissions()->sync($request->input('permissions', []));
-        //$role->syncPermissions($request->input('permissions', []));
+        // $role->permissions()->sync($request->input('permissions', []));
+        $role->syncPermissions($request->input('permissions', []));
 
         return redirect()->route('roles.index');
     }
@@ -117,6 +129,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
+        abort_if(Gate::denies('role_destroy'),403);
         $role = Role::find($id);
         $role->delete();
 

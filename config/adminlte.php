@@ -282,18 +282,21 @@ return [
             'text' => 'Usuarios',
             'url'  => '/users/index',
             'icon' => 'fas fa-user-plus',
+            'can'=> 'user_index',
         ],
 
         [
             'text' => 'Permisos',
             'url'  => 'permissions/index',
             'icon' => 'fas fa-users',
+            'can'=> 'permission_index',
         ],
 
         [
             'text' => 'Roles',
             'url'  => 'roles/index',
             'icon' => 'fas fa-user-tag',
+            'can'=> 'role_index',
         ],
 
 

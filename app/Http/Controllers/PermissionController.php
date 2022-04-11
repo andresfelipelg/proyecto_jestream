@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Permission;
 
 
@@ -23,6 +24,7 @@ class PermissionController extends Controller
 
     public function index()
     {
+        abort_if(Gate::denies('permission_index'),403);
         $permissions = Permission::all();
         return view('permission.index',compact('permissions') );
     }
@@ -34,6 +36,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('permission_create'),403);
         return view('permission.create');
     }
 
@@ -69,6 +72,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
+        abort_if(Gate::denies('permission_edit'),403);
         $permission = Permission::find($id);
         return view('permission.edit',compact('permission'));
     }
@@ -98,6 +102,7 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
+        abort_if(Gate::denies('permission_destroy'),403);
         $permission = Permission::find($id);
         $permission->delete();
 

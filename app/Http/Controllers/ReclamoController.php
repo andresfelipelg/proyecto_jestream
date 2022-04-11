@@ -9,6 +9,7 @@ use App\Models\Producto;
 use App\Models\Reclamo;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 
 class ReclamoController extends Controller
@@ -20,6 +21,8 @@ class ReclamoController extends Controller
      */
     public function index()
     {
+
+    abort_if(Gate::denies('reclamacion_index'),403);
         $clientes = Cliente::all();
         $productos = Producto::all();
         $marcas = Marca::all();
@@ -37,6 +40,7 @@ class ReclamoController extends Controller
     public function create()
     {
 
+        abort_if(Gate::denies('reclamacion_create'),403);
         $clientes = Cliente::all();
         $productos = Producto::all();
         $marcas = Marca::all();
@@ -98,6 +102,7 @@ class ReclamoController extends Controller
      */
     public function edit($id)
     {
+        abort_if(Gate::denies('reclamacion_edit'),403);
         $clientes = Cliente::all();
         $productos = Producto::all();
         $marcas = Marca::all();
@@ -148,6 +153,7 @@ class ReclamoController extends Controller
      */
     public function destroy($id)
     {
+        abort_if(Gate::denies('reclamacion_destroy'),403);
         $reclamo = Reclamo::find($id);
         $reclamo->delete();
 

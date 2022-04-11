@@ -6,8 +6,9 @@
 
 @section('content')
 
+@can('producto_create')
 <a href="{{ route('productos.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
-
+@endcan
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="productos">
      <thead class="color   text-white">
          <tr>
@@ -31,9 +32,12 @@
                  <form  class ="" action="{{ route('productos.delete',$producto->id) }}" method="post">
                  @csrf
                  @method('DELETE')
+                 @can('producto_edit')
                 <a href="{{ route('productos.edit',$producto->id)}}" class="btn btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                @endcan
+                @can('producto_destroy')
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
-
+                @endcan
             </form>
             </td>
          </tr>
