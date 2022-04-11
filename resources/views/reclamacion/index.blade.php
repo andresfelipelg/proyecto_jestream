@@ -1,10 +1,13 @@
 @extends('adminlte::page')
+<link rel="apple-touch-icon"  href="{{ asset('favicons/favicon.png') }}">
 
 @section('content_header')
     <h1 class="h1 font-weight-bold ">Reclamaciones</h1>
+    <link rel="apple-touch-icon"  href="{{ asset('favicons/favicon.png') }}">
 @stop
 
 @section('content')
+<link rel="apple-touch-icon"  href="{{ asset('favicons/favicon.png') }}">
 
 @can('reclamacion_create')
 <a href="{{ route('reclamacion.create') }}" class="btn btn-outline-success  button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
