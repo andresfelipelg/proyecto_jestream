@@ -5,11 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Marca;
 use Illuminate\Support\Facades\Gate;
+use App\Models\Comercial;
+
+use App\Exports\ComercialsExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class MarcaController extends Controller
 
-
 {
+
+
+    public function export() 
+    {
+        return Excel::download(new ComercialsExport, 'comerciales.xlsx');
+    }
 
     public function __construct()
     {

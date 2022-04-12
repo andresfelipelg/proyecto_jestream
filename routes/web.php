@@ -84,3 +84,7 @@ Route::delete('/roles/delete/{id}',[RoleController::class,'destroy'])->name('rol
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+//BOTON DE DESCARGA
+Route::get('comerciales/descargar',[MarcaController::class,'export'])->name('comerciales.descargar');

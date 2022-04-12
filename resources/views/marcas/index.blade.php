@@ -44,6 +44,8 @@
      </tbody>
    </table>
 
+   <a href="{{ route('comerciales.descargar') }}" class="btn btn-outline-success button d m-0 ">Descargar</a>
+
 @stop
 
 @section('css')
