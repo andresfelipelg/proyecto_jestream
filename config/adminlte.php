@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => true,
 
     /*
@@ -65,7 +65,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -234,7 +234,7 @@ return [
         ],
         [
             'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
 
         // Sidebar items:
@@ -255,6 +255,7 @@ return [
             'url'         => 'reclamacion/index',
             'icon'        => 'fas fa-microchip',
             'label_color' => 'success',
+            'can'         => 'reclamacion_index',
         ],
 
         [
@@ -262,6 +263,7 @@ return [
             'url'         => 'marcas/index',
             'icon'        => 'fas fa-globe',
             'label_color' => 'success',
+            'can'=> 'marca_index',
         ],
 
         [
@@ -269,6 +271,7 @@ return [
             'url'         => 'productos/index',
             'icon'        => 'fab fa-empire',
             'label_color' => 'success',
+            'can'=> 'producto_index',
         ],
 
 

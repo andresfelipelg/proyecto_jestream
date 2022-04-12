@@ -35,7 +35,7 @@
                  <form  class ="" action="{{ route('roles.delete',$role->id) }}" method="post">
                  @csrf
                  @method('DELETE')
-                <a href="{{ route('roles.edit',$role->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                {{-- <a href="{{ route('roles.edit',$role->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a> --}}
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
 
             </form>

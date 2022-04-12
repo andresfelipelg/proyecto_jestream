@@ -14,9 +14,8 @@
          <tr>
              <th scope="col">ID</th>
              <th scope="col">Nombre</th>
-             @can('marca_destroy')
              <th scope="col">Accion</th>
-             @endcan
+
          </tr>
      </thead>
      <tbody>
