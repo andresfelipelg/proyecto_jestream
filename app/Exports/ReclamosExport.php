@@ -2,11 +2,11 @@
 
 namespace App\Exports;
 
-use App\Models\Comercial;
+use App\Models\Reclamo;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ComercialsExport implements FromCollection
+class ReclamosExport implements FromCollection
 {
     use Exportable;
     /**
@@ -14,6 +14,6 @@ class ComercialsExport implements FromCollection
     */
     public function collection()
     {
-        return Comercial::all();
+        return Reclamo::all();
     }
 }

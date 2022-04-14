@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ReclamosExport
 use App\Models\Cliente;
 use App\Models\Comercial;
 use App\Models\Marca;
@@ -11,6 +12,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ReclamoController extends Controller
 {
@@ -158,5 +161,10 @@ class ReclamoController extends Controller
         $reclamo->delete();
 
         return redirect(route('reclamacion.index'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ReclamosExport, 'reclamos.xlsx');
     }
 }
