@@ -3,10 +3,11 @@
 namespace App\Exports;
 
 use App\Models\Reclamo;
+use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class ReclamosExport implements FromCollection
+class ReclamosExport implements FromView
 {
     use Exportable;
     /**
@@ -15,5 +16,13 @@ class ReclamosExport implements FromCollection
     public function collection()
     {
         return Reclamo::all();
+    }
+
+    public function view(): View
+    {
+        // TODO: Implement view() method.
+        return view('reclamacion.export',[
+            'reclamaciones'=> Reclamo::get(),
+        ]);
     }
 }

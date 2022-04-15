@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\ReclamosExport
+use App\Exports\ReclamosExport;
 use App\Models\Cliente;
 use App\Models\Comercial;
 use App\Models\Marca;
