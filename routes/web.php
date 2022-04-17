@@ -52,6 +52,7 @@ Route::get('/reclamacion/create',[ReclamoController::class,'create'])->name('rec
 Route::post('/reclamacion/store',[ReclamoController::class,'store'])->name('reclamacion.store');
 Route::get('/reclamacion/edit/{id}',[ReclamoController::class,'edit'])->name('reclamacion.edit');
 Route::get('/reclamacion/show/{id}',[ReclamoController::class,'show'])->name('reclamacion.show');
+Route::get('/reclamacion/pdf/{id}',[ReclamoController::class,'pdf'])->name('reclamacion.pdf');
 Route::put('/reclamacion/update/{id}',[ReclamoController::class,'update'])->name('reclamacion.update');
 Route::delete('/reclamacion/delete/{id}',[ReclamoController::class,'destroy'])->name('reclamacion.delete');
 Route::get('/reclamacion/descargar',[ReclamoController::class,'export'])->name('reclamacion.descargar');

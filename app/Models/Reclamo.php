@@ -7,5 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reclamo extends Model
 {
-    use HasFactory;
+
+
+    protected $dates = [
+        'updated_at',
+
+    ];
+
+    protected $fillable  = [
+    'fecha_ingreso',
+    'cliente',
+    'comercial',
+    'ciudad',
+    'factura',
+    'producto',
+    'referencia',
+    'cantidad',
+    'lote_serial',
+    'marca',
+    'estado',
+    'descripcion_problema',
+    'solucion',
+];
 }
+
+

@@ -46,6 +46,10 @@
                     <label for="floatingSelect">Comercial</label>
             </div>
 
+            <div class="col-md-6 form-floating">
+                <input class="form-control" name="ciudad"  value="{{  $reclamo->ciudad }}" type="text" placeholder="Ingrese la ciudad">
+                <label for="floatingSelect">Ciudad del cliente</label>
+               </div>
 
            <div class="col-md-6 form-floating">
             <input class="form-control" name="factura"  value="{{  $reclamo->factura }}" type="number" placeholder="Ingrese el numero de factura">
@@ -59,11 +63,22 @@
                 @endforeach
             </select>
             <label for="floatingSelect">Producto</label>
-       </div>
+        </div>
+
+        <div class="col-md-6 form-floating ">
+            <select name="referencia" id="floatingSelect"  class="form-select">
+                @foreach ($productos as $producto)
+                <option value="{{$producto->referencia}}">{{$producto->referencia}}</option>
+                @endforeach
+            </select>
+            <label for="floatingSelect">Referencia</label>
+        </div>
+
+
        <div class="col-md-6 form-floating">
         <input class="form-control" name="cantidad"  value="{{  $reclamo->cantidad }}"type="number" placeholder="Cantidad">
         <label for="floatingSelect">Cantidad</label>
-    </div>
+      </div>
         <div class="col-md-6 form-floating">
             <input class="form-control" name="lote_serial"  value="{{  $reclamo->lote_serial }}"type="text" placeholder="Lote o Serial">
             <label for="floatingSelect">Lote o Serial</label>
@@ -103,13 +118,16 @@
         <label for="floatingTextarea2">Respuesta de revision</label>
       </div>
 
-
+      <div class="form-floating">
+        <textarea class="form-control" name="comentario_interno" placeholder="Descripcion_revision" id="floatingTextarea2" style="height: 100px">{{  $reclamo->comentario_interno }}</textarea>
+        <label for="floatingTextarea2">Comentario_interno</label>
+      </div>
 
     <div class="col-md-6 form-floating">
         <select name="solucion"  class="form-select">
             <option value="{{  $reclamo->solucion  }}">{{  $reclamo->solucion  }}</option>
-            <option value="No Aplica Garantia"{{  $reclamo->solucion  }}>No Aplica Garantia</option>
-            <option value="Aplica Garantia"{{  $reclamo->solucion  }}>Aplica Garantia</option>
+            <option value="no aplica la garantia"{{  $reclamo->solucion  }}>no aplica la garantia</option>
+            <option value="aplica la garantia"{{  $reclamo->solucion  }}>aplica la garantia</option>
         </select>
         <label for="floatingTextarea2">Solucion</label>
     </div>

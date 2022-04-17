@@ -44,6 +44,10 @@
                     <label>Comercial</label>
                 </div>
 
+                <div class="col-md-6 form-floating" >
+                    <input class="form-control" name="ciudad" type="text" placeholder="ciudad">
+                    <label>"Ciudad del cliente</label>
+                </div>
 
            <div class="col-md-6 form-floating" >
             <input class="form-control" name="factura" type="number" placeholder="Ingrese el numero de factura">
@@ -58,6 +62,15 @@
             </select>
             <label>Producto</label>
        </div>
+
+       <div class="col-md-6 form-floating">
+        <select name="referencia" class="form-select">
+            @foreach ($productos as $producto)
+            <option value="{{$producto->referencia}}">{{$producto->referencia}}</option>
+            @endforeach
+        </select>
+        <label>Referencia</label>
+   </div>
 
        <div class="col-md-6 form-floating">
         <input class="form-control" name="cantidad" type="number" placeholder="Cantidad">
@@ -96,11 +109,16 @@
         <label for="floatingTextarea2">Respuesta de revision</label>
       </div>
 
+      <div class="form-floating">
+        <textarea class="form-control" name="comentario_interno" placeholder="Descripcion_revision" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Comentario_interno</label>
+      </div>
+
       <div class="col-md-6 form-floating">
         <select name="solucion" class="form-select">
             <option value="En Revision">En Revision</option>
-            <option value="No Aplica Garantia">No Aplica Garantia</option>
-            <option value="Aplica Garantia">Aplica Garantia</option>
+            <option value="no aplica la garantia">no aplica la garantia</option>
+            <option value="aplica la garantia">aplica la garantia</option>
         </select>
         <label>Solucion</label>
     </div>

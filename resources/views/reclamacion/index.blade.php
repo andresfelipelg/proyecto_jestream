@@ -46,6 +46,10 @@
                 @can('reclamacion_edit')
                 <a href="{{ route('reclamacion.edit',$reclamacion->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
                 @endcan
+                @can('reclamacion_edit')
+                <a href="{{ route('reclamacion.pdf',$reclamacion->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-file-pdf-fill"></i>carta</a>
+
+                @endcan
                 @can('reclamacion_destroy')
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>
                 @endcan

@@ -5,10 +5,10 @@
 @stop
 
 @section('content')
-
-@can('user_create')
+{{--
+@can('user_create') --}}
 <a href="{{ route('users.create') }}" class="btn btn-outline-success button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
-@endcan
+{{-- @endcan --}}
 
 
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="usuarios" id="usuario">
