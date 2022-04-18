@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\App;
 use App\Http\Requests\ReclamoRequest;
-
-
+use Carbon\Carbon;
 
 class ReclamoController extends Controller
 {
@@ -30,13 +29,17 @@ class ReclamoController extends Controller
     {
 
      abort_if(Gate::denies('reclamacion_index'),403);
+
         $clientes = Cliente::all();
         $productos = Producto::all();
         $marcas = Marca::all();
         $comerciales = Comercial::all();
         $reclamaciones = Reclamo::all();
+        $hoy = Carbon::now();
 
-        return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones'));
+
+
+        return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','hoy'));
     }
 
     /**
@@ -64,9 +67,19 @@ class ReclamoController extends Controller
      */
     public function store(ReclamoRequest $request)
     {
+
+        $date = new Carbon($request->fecha_ingreso);
+        $fecha_vencimiento = $date->addDay(7);
+
+
+
+
         $reclamos = new Reclamo();
+
+
         $reclamos->fecha_ingreso = $request->fecha_ingreso;
         $reclamos->fecha_respuesta = $request->fecha_respuesta;
+        $reclamos->fecha_vencimiento = $fecha_vencimiento;
         $reclamos->cliente = $request->cliente;
         $reclamos->comercial = $request->comercial;
         $reclamos->ciudad = $request->ciudad;

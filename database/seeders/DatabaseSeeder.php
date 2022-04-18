@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             RoleHasPermissionSeeder::class,
 
 
+
         ]);
     }
 }

@@ -23,6 +23,7 @@
              <th scope="col">Codigo</th>
              <th scope="col">Problemas del equipo</th>
              <th scope="col">Estado</th>
+             <th scope="col">Vencimiento</th>
              <th scope="col">Acciones</th>
          </tr>
      </thead>
@@ -36,6 +37,20 @@
             <td>{{$reclamacion->producto }}</td>
             <td>{{$reclamacion->descripcion_problema }}</td>
             <td>{{$reclamacion->estado }}</td>
+
+            <td>
+
+                @php
+
+
+
+                      $date = new Carbon($reclamacion->fecha_vencimiento);
+                      $date->subDay($hoy)->format('Y-m-d')
+
+                @endphp
+                {{$date}}
+
+              </td>
 
 
          <td>

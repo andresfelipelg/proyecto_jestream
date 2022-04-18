@@ -17,6 +17,7 @@ class CreateReclamosTable extends Migration
             $table->id();
             $table->date('fecha_ingreso');
             $table->date('fecha_respuesta')->nullable();
+            $table->date('fecha_vencimiento');
             $table->string('cliente');
             $table->string('comercial');
             $table->string('ciudad');
