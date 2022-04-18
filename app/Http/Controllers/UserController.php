@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function index()
     {
-        abort_if(Gate::denies('user_index'),403);
+         abort_if(Gate::denies('user_index'),403);
         $users = User::all();
 
         return view('users.index',compact('users'));
@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('user_create'),403);
+         abort_if(Gate::denies('user_create'),403);
         $roles = Role::all()->pluck('name','id');
         return view('users.create',compact('roles'));
     }
@@ -76,7 +76,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        abort_if(Gate::denies('user_edit'),403);
+         abort_if(Gate::denies('user_edit'),403);
         $user = User::find($id);
         $roles= role::all()->pluck('name','id');
         $user->load('roles');

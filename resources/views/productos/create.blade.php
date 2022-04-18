@@ -18,14 +18,23 @@
         <h1 class= "mt-4 h2 font-weight-normal text-white" >Nuevo Codigo</h1>
 
         <div class="mb-3 mt-3 text-start">
-            <input class="form-control" name="codigo" type="text" placeholder="Ingrese el codigo">
+            <input class="form-control" name="codigo" value="{{ old("codigo" ) }}" type="text" placeholder="Ingrese el codigo">
+            @if ($errors->has('codigo'))
+            <p class="text-white">{{ $errors->first('codigo') }}</p>
+           @endif
        </div>
 
        <div class="mb-3 mt-3 text-start">
-           <input class="form-control" name="referencia" type="text" placeholder="Ingrese la referencia">
+           <input class="form-control" name="referencia"  value="{{ old("referencia" ) }}" type="text" placeholder="Ingrese la referencia">
+           @if ($errors->has('referencia'))
+            <p class="text-white">{{ $errors->first('referencia') }}</p>
+           @endif
      </div>
      <div class="mb-3 mt-3 text-start">
-        <input class="form-control" name="referencia_proveedor" type="text" placeholder="Ingrese la referencia del proveedor">
+        <input class="form-control" name="referencia_proveedor"  value="{{ old("referencia_proveedor" ) }}" type="text" placeholder="Ingrese la referencia del proveedor">
+        @if ($errors->has('referencia_proveedor'))
+            <p class="text-white">{{ $errors->first('referencia_proveedor') }}</p>
+        @endif
     </div>
 
 

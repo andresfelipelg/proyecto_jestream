@@ -1,16 +1,18 @@
 @extends('adminlte::page')
-<link rel="apple-touch-icon"  href="{{ asset('favicons/favicon.png') }}">
 
 @section('content_header')
     <h1 class="h1 font-weight-bold ">Reclamaciones</h1>
-    <link rel="apple-touch-icon"  href="{{ asset('favicons/favicon.png') }}">
+
 @stop
 
 @section('content')
-<link rel="apple-touch-icon"  href="{{ asset('favicons/favicon.png') }}">
+
 
 @can('reclamacion_create')
 <a href="{{ route('reclamacion.create') }}" class="btn btn-outline-success  button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
+@endcan
+@can('reclamacion_show')
+<a href="{{ route('reclamacion.descargar') }}" class="btn btn-outline-success  button mt-2 mb-3"><i class="bi bi-file-earmark-excel-fill"></i>Exportar</a>
 @endcan
    <table class="table table-light text-center table-striped mt-4 table-bordered shadow-lg" id="reclamacion" id="reclamo">
      <thead class="color  text-white">
@@ -43,6 +45,10 @@
                 <a href="{{ route('reclamacion.show',$reclamacion->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-eye"></i> Ver</a>
                 @can('reclamacion_edit')
                 <a href="{{ route('reclamacion.edit',$reclamacion->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-pencil-square"></i> Editar</a>
+                @endcan
+                @can('reclamacion_edit')
+                <a href="{{ route('reclamacion.pdf',$reclamacion->id)}}" class="btn btn-outline-success button d m-0 "><i class="bi bi-file-pdf-fill"></i>carta</a>
+
                 @endcan
                 @can('reclamacion_destroy')
                 <button class="btn btn-outline-danger" type="submit" ><i class="bi bi-trash-fill"></i> Borrar</button>

@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => ' <b>Modulo</b> Garantias ',
-    'logo_img' => 'css/img/Logo2.png',
+    'logo_img' => 'img/Logo2.png',
     'logo_img_class' => 'brand-image <br> img-circle elevation-3',
     'logo_img_xl' => false,
     'logo_img_xl_class' => 'brand-image-xl',
