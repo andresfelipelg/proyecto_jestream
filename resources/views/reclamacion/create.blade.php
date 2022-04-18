@@ -19,9 +19,13 @@
 
 
         <div class="form-floating col-md-6">
-            <input type="date" name="fecha_ingreso" class="form-control" id="floatingInput" placeholder="">
+            <input type="date" name="fecha_ingreso" value="{{ old('fecha_ingreso') }}" class="form-control" id="floatingInput" placeholder="">
             <label for="floatingInput">Fecha de ingreso</label>
+            @if ($errors->has('fecha_ingreso'))
+            <p class="text-white">{{ $errors->first('fecha_ingreso') }}</p>
+            @endif
           </div>
+
           <div class="form-floating col-md-6">
             <input type="date" name="fecha_respuesta" class="form-control" id="floatingInput" placeholder="">
             <label for="floatingInput">Fecha de Respuesta</label>
@@ -33,7 +37,10 @@
                     @endforeach
                 </select>
                 <label> Cliente</label>
-                </div>
+                @if ($errors->has('cliente'))
+                 <p class="text-white">{{ $errors->first('cliente') }}</p>
+                @endif
+            </div>
 
                 <div class="col-md-6 form-floating" >
                     <select name="comercial" class="form-select">
@@ -42,25 +49,38 @@
                         @endforeach
                     </select>
                     <label>Comercial</label>
+                    @if ($errors->has('comercial'))
+                    <p class="text-white">{{ $errors->first('comercial') }}</p>
+                    @endif
                 </div>
 
                 <div class="col-md-6 form-floating" >
-                    <input class="form-control" name="ciudad" type="text" placeholder="ciudad">
-                    <label>"Ciudad del cliente</label>
+                    <input class="form-control" name="ciudad" value="{{ old('ciudad') }}" type="text" placeholder="ciudad">
+                    <label>Ciudad del cliente</label>
+                    @if ($errors->has('ciudad'))
+                     <p class="text-white">{{ $errors->first('ciudad') }}</p>
+                   @endif
                 </div>
 
+
            <div class="col-md-6 form-floating" >
-            <input class="form-control" name="factura" type="number" placeholder="Ingrese el numero de factura">
-            <label>"Ingrese el numero de factura</label>
+            <input class="form-control" name="factura" value="{{ old('factura') }}" type="number" placeholder="Ingrese el numero de factura">
+            <label>Ingrese el numero de factura</label>
+            @if ($errors->has('factura'))
+                <p class="text-white">{{ $errors->first('factura') }}</p>
+            @endif
           </div>
 
         <div class="col-md-6 form-floating">
             <select name="producto" class="form-select">
                 @foreach ($productos as $producto)
-                <option value="{{$producto->codigo}}">{{$producto->codigo}}</option>
+                    <option value="{{$producto->codigo}}">{{$producto->codigo}}</option>
                 @endforeach
             </select>
             <label>Producto</label>
+            @if ($errors->has('producto'))
+                <p class="text-white">{{ $errors->first('producto') }}</p>
+            @endif
        </div>
 
        <div class="col-md-6 form-floating">
@@ -70,16 +90,25 @@
             @endforeach
         </select>
         <label>Referencia</label>
+        @if ($errors->has('referencia'))
+            <p class="text-white">{{ $errors->first('referencia') }}</p>
+        @endif
    </div>
 
        <div class="col-md-6 form-floating">
-        <input class="form-control" name="cantidad" type="number" placeholder="Cantidad">
+        <input class="form-control" name="cantidad" value="{{ old('cantidad') }}" type="number" placeholder="Cantidad">
         <label>Cantidad</label>
+        @if ($errors->has('cantidad'))
+            <p class="text-white">{{ $errors->first('cantidad') }}</p>
+        @endif
     </div>
 
         <div class="col-md-6 form-floating">
-            <input class="form-control" name="lote_serial" type="text" placeholder="Lote o Serial">
+            <input class="form-control" name="lote_serial" value="{{ old('lote_serial') }}" type="text" placeholder="Lote o Serial">
             <label>Lote o Serial</label>
+            @if ($errors->has('lote_serial'))
+             <p class="text-white">{{ $errors->first('lote_serial') }}</p>
+            @endif
         </div>
 
        <div class="col-md-6 form-floating">
@@ -89,6 +118,9 @@
             @endforeach
         </select>
         <label>Marca</label>
+        @if ($errors->has('marca'))
+          <p class="text-white">{{ $errors->first('marca') }}</p>
+       @endif
     </div>
 
      <div class="col-md-6 form-floating">
@@ -98,10 +130,16 @@
             <option value="Finalizado">Finalizado</option>
         </select>
         <label>Estado</label>
+        @if ($errors->has('estado'))
+         <p class="text-white">{{ $errors->first('estado') }}</p>
+       @endif
     </div>
      <div class="form-floating">
-        <textarea class="form-control" name="descripcion_problema" placeholder="Descripcion de Laumayer" id="floatingTextarea2" style="height: 100px"></textarea>
+        <textarea class="form-control" name="descripcion_problema" placeholder="Descripcion de Laumayer" id="floatingTextarea2" style="height: 100px">{{ old('descripcion_problema') }}</textarea>
         <label for="floatingTextarea2">Descripcion del problema</label>
+        @if ($errors->has('descripcion_problema'))
+        <p class="text-white">{{ $errors->first('descripcion_problema') }}</p>
+       @endif
       </div>
 
     <div class="form-floating">

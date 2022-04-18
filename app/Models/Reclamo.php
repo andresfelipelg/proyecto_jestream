@@ -9,26 +9,26 @@ class Reclamo extends Model
 {
 
 
-    protected $dates = [
-        'updated_at',
+    // protected $dates = [
+    //     'updated_at',
 
-    ];
+    // ];
 
-    protected $fillable  = [
-    'fecha_ingreso',
-    'cliente',
-    'comercial',
-    'ciudad',
-    'factura',
-    'producto',
-    'referencia',
-    'cantidad',
-    'lote_serial',
-    'marca',
-    'estado',
-    'descripcion_problema',
-    'solucion',
-];
+//     protected $fillable  = [
+//     'fecha_ingreso',
+//     'cliente',
+//     'comercial',
+//     'ciudad',
+//     'factura',
+//     'producto',
+//     'referencia',
+//     'cantidad',
+//     'lote_serial',
+//     'marca',
+//     'estado',
+//     'descripcion_problema',
+//     'solucion',
+// ];
 }
 
 

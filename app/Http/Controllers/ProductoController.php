@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\ProductoRequest;
 
 class ProductoController extends Controller
 {
@@ -38,7 +39,7 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request  $request )
+    public function store(ProductoRequest $request )
     {
         $productos = new Producto();
         $productos->codigo = $request->codigo;

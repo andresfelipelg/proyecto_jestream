@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\App;
+use App\Http\Requests\ReclamoRequest;
 
 
 
@@ -61,7 +62,7 @@ class ReclamoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReclamoRequest $request)
     {
         $reclamos = new Reclamo();
         $reclamos->fecha_ingreso = $request->fecha_ingreso;
@@ -105,11 +106,11 @@ class ReclamoController extends Controller
 
     public function pdf($id)
     {
-        $reclamo = Reclamo::find($id);
+         $reclamo = Reclamo::findOrFail($id);
          $exportPdf = PDF::loadView('reclamacion.pdf1',['reclamo'=>$reclamo]);
         return $exportPdf->stream('reclamacion.pdf1');
 
-        //return view('reclamacion.pdf1',compact('reclamo'));
+        //return view('reclamacion.pdf',compact('reclamo'));
     }
 
 
@@ -185,6 +186,6 @@ class ReclamoController extends Controller
 
     public function export()
     {
-        return Excel::download(new ReclamosExport, 'reclamos.pdf');
+        return Excel::download(new ReclamosExport, 'reclamos.xlsx');
     }
 }
