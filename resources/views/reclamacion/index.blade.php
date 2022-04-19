@@ -1,12 +1,17 @@
 @extends('adminlte::page')
 
+<
 @section('content_header')
+
     <h1 class="h1 font-weight-bold ">Reclamaciones</h1>
 
 @stop
 
 @section('content')
-
+<div class="alert {{$clase}} alert-dismissible fade show" role="alert">
+   <strong>Atencion!</strong> {{$mensaje}}
+    <button type="button" class="btn" data-bs-dismiss="alert" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+  </div>
 
 @can('reclamacion_create')
 <a href="{{ route('reclamacion.create') }}" class="btn btn-outline-success  button mt-2 mb-3"><i class="bi bi-file-earmark-plus-fill"></i> Crear</a>
@@ -37,20 +42,18 @@
             <td>{{$reclamacion->producto }}</td>
             <td>{{$reclamacion->descripcion_problema }}</td>
             <td>{{$reclamacion->estado }}</td>
+            @if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($fecha)<=3)
+            <td class="text-danger">{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($fecha)}}</td>
+            @else
+            <td>{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($fecha)}}</td>
+            @endif
 
-            <td>
+            {{-- <td>{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now)}}<td/> --}}
 
-                @php
+            {{-- <td class="text-danger">{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now) > 5 ? 'hola':'holi' }}</td> --}}
+            {{-- <td class="text-danger">{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now) > 5 ? 'hola':'holi' }}  --}}
 
 
-
-                      $date = new Carbon($reclamacion->fecha_vencimiento);
-                      $date->subDay($hoy)->format('Y-m-d')
-
-                @endphp
-                {{$date}}
-
-              </td>
 
 
          <td>
@@ -79,6 +82,7 @@
 @stop
 
 @section('css')
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.3.7/css/autoFill.bootstrap5.min.css"/>
@@ -103,6 +107,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function() {

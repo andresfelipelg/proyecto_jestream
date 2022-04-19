@@ -27,6 +27,9 @@ class ReclamoController extends Controller
      */
     public function index()
     {
+        $now = Carbon::now('UTC');
+        $fecha = new Carbon('2022-04-19');
+
 
      abort_if(Gate::denies('reclamacion_index'),403);
 
@@ -35,11 +38,27 @@ class ReclamoController extends Controller
         $marcas = Marca::all();
         $comerciales = Comercial::all();
         $reclamaciones = Reclamo::all();
-        $hoy = Carbon::now();
+
+        foreach($reclamaciones As $reclamacion){
+
+            if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($fecha) < 2){
+                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
+                ->with('mensaje','se encontro una garantia vencida')
+                ->with('clase','alert-danger');
+        }
+
+
+        else{
+            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
+            ->with('mensaje','no hay garantias vencida')
+            ->with('clase','alert-info');;
+
+        }
+        }
 
 
 
-        return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','hoy'));
+
     }
 
     /**

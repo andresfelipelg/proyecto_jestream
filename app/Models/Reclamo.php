@@ -9,10 +9,10 @@ class Reclamo extends Model
 {
 
 
-    // protected $dates = [
-    //     'updated_at',
+    protected $dates = [
+        'fecha_vencimiento',
 
-    // ];
+    ];
 
 //     protected $fillable  = [
 //     'fecha_ingreso',
