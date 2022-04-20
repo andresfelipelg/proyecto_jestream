@@ -64,7 +64,7 @@
 
 
            <div class="col-md-6 form-floating" >
-            <input class="form-control" name="factura" value="{{ old('factura') }}" type="number" placeholder="Ingrese el numero de factura">
+            <input class="form-control" name="factura" value="{{ old('factura') }}" type="number" placeholder="Ingrese el numero de factura" required>
             <label>Ingrese el numero de factura</label>
             @if ($errors->has('factura'))
                 <p class="text-white">{{ $errors->first('factura') }}</p>

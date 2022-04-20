@@ -25,6 +25,11 @@ class ReclamoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $now = Carbon::now('UTC');
@@ -41,14 +46,23 @@ class ReclamoController extends Controller
 
         foreach($reclamaciones as $reclamacion){
 
-            if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($fecha) < 2){
+            if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now) < 1){
                 return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
                 ->with('mensaje','se encontro una garantia vencida')
                 ->with('clase','alert-danger');
         }
 
+        elseif ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now) < 3)
+        {
+            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
+            ->with('mensaje','se encontro una garantia a punto de vencerse')
+            ->with('clase','alert-warning');
+        }
 
-        else{
+
+        else
+        {
+
             return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
             ->with('mensaje','no hay garantias vencida')
             ->with('clase','alert-info');;
