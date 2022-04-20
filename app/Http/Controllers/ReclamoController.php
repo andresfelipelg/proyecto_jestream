@@ -39,7 +39,7 @@ class ReclamoController extends Controller
         $comerciales = Comercial::all();
         $reclamaciones = Reclamo::all();
 
-        foreach($reclamaciones As $reclamacion){
+        foreach($reclamaciones as $reclamacion){
 
             if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($fecha) < 2){
                 return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
