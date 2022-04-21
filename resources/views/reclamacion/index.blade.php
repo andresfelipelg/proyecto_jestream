@@ -44,12 +44,14 @@
             <td>{{$reclamacion->producto }}</td>
             <td>{{$reclamacion->descripcion_problema }}</td>
             <td>{{$reclamacion->estado }}</td>
-            @if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now)<=2)
-            <td class="text-danger">{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now)}}</td>
-            @elseif ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now) <=5)
-            <td class="text-warning">{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now)}}</td>
+            @if ( $diff == 0 && $reclamacion->estado =='Finalizado' )
+            <td class="text-dark">{{$diff}}</td>
+            @elseif ($diff  < 2)
+            <td class="text-danger">{{ $diff}}</td>
+            @elseif ( $diff  < 5)
+            <td class="text-warning">{{ $diff}}</td>
             @else
-            <td>{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now)}}</td>
+            <td>{{$diff}}</td>
             @endif
 
             {{-- <td>{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($fecha)}}<td/> --}}

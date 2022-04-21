@@ -53,7 +53,7 @@ class ReclamoController extends Controller
 
             if ( $diff < 1 && $reclamacion->estado == 'Finalizado')
             {
-                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador'))
+                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador','diff'))
                 ->with('mensaje','no hay garantias vencidas')
                 ->with('clase','alert-info');
 
@@ -61,7 +61,7 @@ class ReclamoController extends Controller
 
             elseif ( $diff < 1){
 
-                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador'))
+                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador', 'diff'))
                 ->with('mensaje','se encontro garantia vencida')
                 ->with('clase','alert-danger');
         }
@@ -70,7 +70,7 @@ class ReclamoController extends Controller
         elseif ( $diff  <= 3)
         {
 
-            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha', 'contador'))
+            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha', 'contador','diff'))
             ->with('mensaje','se encontro una garantia a punto de vencerse')
             ->with('clase','alert-warning');
         }
@@ -79,7 +79,7 @@ class ReclamoController extends Controller
         else
         {
 
-            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador'))
+            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador','diff'))
             ->with('mensaje','no hay garantias vencidas')
             ->with('clase','alert-info');
 
