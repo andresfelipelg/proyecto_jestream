@@ -1,10 +1,11 @@
 @extends('adminlte::page')
 
-<
+
 @section('content_header')
+
 <div class="alert {{$clase}} alert-dismissible fade show" role="alert">
-    <strong>Atencion!</strong> {{$mensaje}}
-     <button type="button" class="btn" data-bs-dismiss="alert" aria-label="Close"><i class=" text-white bi bi-x-lg"></i></button>
+    <span class="text-white"><strong class="text-white">Atencion!</strong> {{$mensaje}}</span>
+     <button type="button" class="btn text-white" data-bs-dismiss="alert" aria-label="Close"><i class=" text-white bi bi-x-lg"></i></button>
    </div>
 
     <h1 class="h1 font-weight-bold ">Reclamaciones</h1>
@@ -45,7 +46,7 @@
             <td>{{$reclamacion->estado }}</td>
             @if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now)<=2)
             <td class="text-danger">{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now)}}</td>
-            @elseif ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now) <=5))
+            @elseif ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now) <=5)
             <td class="text-warning">{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now)}}</td>
             @else
             <td>{{ $diff = $reclamacion->fecha_vencimiento->diffInDays($now)}}</td>

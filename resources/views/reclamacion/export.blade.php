@@ -2,7 +2,7 @@
    <table>
      <thead>
          <tr>
-             <th>Consecutivo</th>
+             <th class="bg-blue">Consecutivo</th>
              <th>Fecha de Ingreso</th>
              <th>Fecha de Respuesta</th>
              <th>Cliente</th>

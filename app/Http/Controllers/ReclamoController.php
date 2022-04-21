@@ -33,7 +33,9 @@ class ReclamoController extends Controller
     public function index()
     {
         $now = Carbon::now('UTC');
-        $fecha = new Carbon('2022-04-19');
+        $fecha = new Carbon('2022-04-22');
+
+
 
 
      abort_if(Gate::denies('reclamacion_index'),403);
@@ -44,17 +46,31 @@ class ReclamoController extends Controller
         $comerciales = Comercial::all();
         $reclamaciones = Reclamo::all();
 
+        $contador = 0;
         foreach($reclamaciones as $reclamacion){
+            $diff = $reclamacion->fecha_vencimiento->diffInDays($now);
 
-            if ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now) < 1){
-                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
-                ->with('mensaje','se encontro una garantia vencida')
+
+            if ( $diff < 1 && $reclamacion->estado == 'Finalizado')
+            {
+                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador'))
+                ->with('mensaje','no hay garantias vencidas')
+                ->with('clase','alert-info');
+
+            }
+
+            elseif ( $diff < 1){
+
+                return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador'))
+                ->with('mensaje','se encontro garantia vencida')
                 ->with('clase','alert-danger');
         }
 
-        elseif ( $diff = $reclamacion->fecha_vencimiento->diffInDays($now) < 3)
+
+        elseif ( $diff  <= 3)
         {
-            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
+
+            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha', 'contador'))
             ->with('mensaje','se encontro una garantia a punto de vencerse')
             ->with('clase','alert-warning');
         }
@@ -63,9 +79,9 @@ class ReclamoController extends Controller
         else
         {
 
-            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha'))
-            ->with('mensaje','no hay garantias vencida')
-            ->with('clase','alert-info');;
+            return view ('reclamacion.index',compact('clientes','productos','marcas','comerciales','reclamaciones','now','fecha','contador'))
+            ->with('mensaje','no hay garantias vencidas')
+            ->with('clase','alert-info');
 
         }
         }
